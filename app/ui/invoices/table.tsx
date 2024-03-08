@@ -1,12 +1,22 @@
+"use client"
+import { useState } from 'react';
 import Image from "next/image";
 import { formatCurrency } from "@/app/lib/utils";
 import Link from "next/link";
+import ScholarModal from './scholarModal';
 
-export default async function InvoicesTable({
+export default function InvoicesTable({
   courses,
 }: {
   courses: object[];
 }) {
+  const [selectedCourse, setSelectedCourse] = useState<{ title: string, scholarship: number } | null>(null);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleApplyForScholarship = (course: any) => {
+    setSelectedCourse({ title: course.title, scholarship: course.scholarship });
+    setShowModal(true);
+  };
 
   return (
     <div className=" flow-root">
@@ -88,17 +98,16 @@ export default async function InvoicesTable({
                       <div className="flex justify-center">
                         {course.scholarship > 0 ? (
                           <div>
-                          <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-4 rounded w-60">
-                            Apply for Scholarship 
-                          </button>
-                          <h6 className="text-center text-sm pt-1 font-bold">Upto <span className="text-red-500">{course.scholarship}% </span>scholarship available</h6>
-                        </div>
+                            <button onClick={() => handleApplyForScholarship(course)} className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-4 rounded w-60">Apply for Scholarship </button>
+                            <h6 className="text-center text-sm pt-1 font-bold">Upto <span className="text-red-500">{course.scholarship}% </span>scholarship available</h6>
+                          </div>
                         ) : (
-                          <Link 
-                          href="/BuyEnquiry"
-                          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded w-60 text-center">
-                            Buy Now
-                          </Link>
+                          <div>
+                            <Link href="/BuyEnquiry">
+                              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded w-60 text-center">Buy Now</button>
+                            </Link>
+                            <h6 className="text-center text-sm pt-1 font-bold"> HURRY UP!! Limited slots left</h6>
+                          </div>
                         )}
                       </div>
                     </div>
@@ -107,6 +116,32 @@ export default async function InvoicesTable({
               ))}
         </div>
       </div>
+      {showModal && (
+        <ScholarModal onClose={() => setShowModal(false)}>
+          <div className='w-[40rem]'>
+            {selectedCourse && (
+              <>
+                <h1 className='font-bold pb-2 text-2xl text-center'>{selectedCourse.title} Scholarship Form</h1>
+              </>
+            )}
+            <p className='text-lg pb-2 font-bold text-center' style={{color:"gray"}}>🚀 Unlock Your Learning Journey with SaralTech! 🌟</p>
+            {selectedCourse && (
+              <>
+                <p className='pb-2 font-bold'>🚀 We're offering up to <span style={{color:"#000080"}}>{selectedCourse.scholarship}%</span> scholarship to passionate learners, valuing their dedication and potential. Share your aspirations through questions like:</p>
+              </>
+            )}
+            <ol className='pb-3'>
+              <li>1. Why do you want to join this program? (100 Points).</li>
+              <li>2. Showcase your accomplishments (50 Points).</li>
+              <li>3. Present your resume/proposal (100 Points).</li>
+            </ol>
+            <p className='text-center' style={{color:"#7393B3"}}>It's not just a program; it's a launchpad for your dreams! 🌐✨ </p>
+            <p className='text-center pb-3' style={{color:"	#7393B3"}}>Apply today and let your journey begin.</p>
+            <p style={{color:"#000080"}}>#SaralTech #ScholarshipOpportunity #InnovationJourney 🚀💡</p>
+            <Link href="/ScholarshipRequest" className='flex justify-center pt-3'><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 rounded w-40 ">Apply Now</button></Link>
+          </div>
+        </ScholarModal>
+      )}
     </div>
   );
 }
