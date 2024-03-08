@@ -6,21 +6,13 @@ import { usePathname } from "next/navigation";
 
 const links = [
   { name: "Home", href: "/home"},
-  // {
-  //   name: "Invoices",
-  //   href: "/dashboard/invoices"
-  // },
   {
     name: "Courses",
     href: "/home/courses"
   },
   {
-    name: "Mentors",
-    href: "/home/mentors"
-  },
-  {
-    name: "Testimonials",
-    href: "/home/testimonials"
+    name: "Research Hub",
+    href: "/home/researchhub"
   },
   {
     name: "Request Callback",
