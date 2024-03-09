@@ -8,7 +8,7 @@ const formSchema = z.object({
   name: z.string().min(2).max(50),
   email: z.string().email().min(2).max(50),
   phoneNumber: z.string().min(1).max(10),
-  description: z.string().min(3).max(1000),
+  message: z.string().min(3).max(1000),
 });
 
 export async function counsellingrequest(prevState: any, formData: any) {
@@ -20,7 +20,7 @@ export async function counsellingrequest(prevState: any, formData: any) {
     name: formData.get("name"),
     email: formData.get("email"),
     phoneNumber: formData.get("phoneNumber"),
-    description: formData.get("description"),
+    message: formData.get("message"),
   });
 
   if (!validatedFields.success) {
@@ -30,8 +30,8 @@ export async function counsellingrequest(prevState: any, formData: any) {
     };
   }
 
-  const { name, email, phoneNumber, description } = validatedFields.data;
-  const review = { name, email, phoneNumber, description};
+  const { name, email, phoneNumber, message } = validatedFields.data;
+  const review = { name, email, phoneNumber, message};
 
   try {
     const response: any = await fetch(url, {
@@ -39,7 +39,7 @@ export async function counsellingrequest(prevState: any, formData: any) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({data:{name:name, email:email, phoneNumber:phoneNumber, description:description}}),
+      body: JSON.stringify({data:{name:name, email:email, phoneNumber:phoneNumber, message:message}}),
       cache: "no-cache",
     });
 

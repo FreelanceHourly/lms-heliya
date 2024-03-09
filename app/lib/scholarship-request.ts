@@ -10,7 +10,7 @@ const formSchema = z.object({
   phoneNumber: z.string().min(1).max(10),
   whyThisProgram: z.string().min(10).max(1000),
   currentAchievements: z.string().min(10).max(1000),
-  resumeProposal: z.string().min(10).max(1000),
+  resumeProposal: z.string().min(3).max(1000),
 });
 
 export async function scholarshiprequest(prevState: any, formData: any) {
@@ -27,15 +27,16 @@ export async function scholarshiprequest(prevState: any, formData: any) {
     resumeProposal: formData.get("resumeProposal"),
   });
 
+  
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
       message: "Missing Fields. Failed to apply.",
     };
   }
-
+  
   const { name, email, phoneNumber, whyThisProgram, currentAchievements, resumeProposal } = validatedFields.data;
-
+  
   const review = { name, email, phoneNumber, whyThisProgram, currentAchievements, resumeProposal };
 
   try {

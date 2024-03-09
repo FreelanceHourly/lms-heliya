@@ -107,27 +107,27 @@ export default function RegisterForm() {
           <div>
             <label
               className="mb-3 mt-5 block text-xs font-medium text-gray-900"
-              htmlFor="description"
+              htmlFor="message"
             >
               Description
             </label>
             <div className="relative">
               <textarea
                 className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
-                id="description"
+                id="message"
                 rows={4}
-                name="description"
+                name="message"
                 placeholder="what's your query"
               />
               <PencilSquareIcon className="pointer-events-none absolute left-3 top-1/4 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
             </div>
-            {state?.errors?.description ? (
+            {state?.errors?.message ? (
               <div
                 id="customer-error"
                 aria-live="polite"
                 className="mt-2 text-sm text-red-500"
               >
-                {state.errors.description.map((error: string) => (
+                {state.errors.message.map((error: string) => (
                   <p key={error}>{error}</p>
                 ))}
               </div>

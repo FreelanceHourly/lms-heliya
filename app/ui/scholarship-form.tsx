@@ -1,6 +1,6 @@
 "use client";
 import { useFormState } from "react-dom";
-import { buyrequest } from "@/app/lib/buy-requests";
+import { scholarshiprequest } from "../lib/scholarship-request";
 import { lusitana } from "@/app/ui/fonts";
 import { AtSymbolIcon, PhoneIcon, UserIcon, PencilSquareIcon } from "@heroicons/react/24/outline";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
@@ -9,17 +9,17 @@ import Link from "next/link";
 
 export default function ScholarshipForm() {
   const initialState = {};
-  const [state, dispatch] = useFormState(buyrequest, initialState);
+  const [state, dispatch] = useFormState(scholarshiprequest, initialState);
   return (
-    <form className="space-y-3" action={dispatch}>
-      <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
-        <h1 className={`${lusitana.className} mb-3 text-2xl`}>
+    <form className="space-y-1" action={dispatch}>
+      <div className="flex-1 rounded-lg bg-gray-50 px-2 pb-2 pt-2 mb-2">
+        <h1 className={`${lusitana.className} mb-0 text-xl`}>
           Unlock your potential with our scholarship opportunities!
         </h1>
         <div className="w-full">
           <div>
             <label
-              className="mb-3 mt-5 block text-xs font-medium text-gray-900"
+              className="mb-1 mt-3 block text-xs font-medium text-gray-900"
               htmlFor="name"
             >
               Name
@@ -48,7 +48,7 @@ export default function ScholarshipForm() {
           </div>
           <div>
             <label
-              className="mb-3 mt-5 block text-xs font-medium text-gray-900"
+              className="mb-1 mt-3 block text-xs font-medium text-gray-900"
               htmlFor="email"
             >
               Email
@@ -77,7 +77,7 @@ export default function ScholarshipForm() {
           </div>
           <div>
             <label
-              className="mb-3 mt-5 block text-xs font-medium text-gray-900"
+              className="mb-1 mt-3 block text-xs font-medium text-gray-900"
               htmlFor="phoneNumber"
             >
               Phone Number
@@ -106,7 +106,7 @@ export default function ScholarshipForm() {
           </div>
           <div>
             <label
-              className="mb-3 mt-5 block text-xs font-medium text-gray-900"
+              className="mb-1 mt-3 block text-xs font-medium text-gray-900"
               htmlFor="whyThisProgram"
             >
               Why you wanted to join this program? * (100 Points)
@@ -135,7 +135,7 @@ export default function ScholarshipForm() {
           </div>
           <div>
             <label
-              className="mb-3 mt-5 block text-xs font-medium text-gray-900"
+              className="mb-1 mt-3 block text-xs font-medium text-gray-900"
               htmlFor="currentAchievements"
             >
               What are your current achievements? * (50 Points)
@@ -146,7 +146,7 @@ export default function ScholarshipForm() {
                 id="currentAchievements"
                 rows={4}
                 name="currentAchievements"
-                placeholder="how can this course help you"
+                placeholder="your achievements"
               />
               <PencilSquareIcon className="pointer-events-none absolute left-3 top-1/4 h-[18px] w-[18px] text-gray-500 peer-focus:text-gray-900" />
             </div>
@@ -164,7 +164,7 @@ export default function ScholarshipForm() {
           </div>
           <div>
             <label
-              className="mb-3 mt-5 block text-xs font-medium text-gray-900"
+              className="mb-1 mt-3 block text-xs font-medium text-gray-900"
               htmlFor="resumeProposal"
             >
               Link for Resume/Proposal (100 Points)
@@ -175,7 +175,7 @@ export default function ScholarshipForm() {
                 id="resumeProposal"
                 rows={4}
                 name="resumeProposal"
-                placeholder="how can this course help you"
+                placeholder="link of resume or proposal"
               />
               <PencilSquareIcon className="pointer-events-none absolute left-3 top-1/4 h-[18px] w-[18px] text-gray-500 peer-focus:text-gray-900" />
             </div>
@@ -214,7 +214,7 @@ export default function ScholarshipForm() {
 
 function ScholarshipButton() {
   return (
-    <Button className="mt-4 w-full">
+    <Button className="mt-2 w-full">
       Apply Now<ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
     </Button>
   );

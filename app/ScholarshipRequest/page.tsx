@@ -4,8 +4,8 @@ import ScholarshipForm from "../ui/scholarship-form";
 
 export default function ScholarshipRequest() {
   return (
-    <main className="flex items-center justify-center mt-5 mb-5 ">
-      <div className="relative mx-auto flex w-full max-w-[400px] flex-col space-y-2.5 p-4  border-black border-2">
+    <main className="flex items-center justify-center mt-3 mb-4 ">
+      <div className="relative mx-auto flex w-full max-w-[400px] flex-col p-1  border-black border-2">
        
         <div className="w-32 text-white md:w-36 ">
           <Image
@@ -13,9 +13,9 @@ export default function ScholarshipRequest() {
             width={400}
             height={400}
             className="hidden md:block"
-            alt="Screenshots of the dashboard project showing desktop and mobile versions"
+            alt="logo"
           />
-          </div>
+        </div>
         <ScholarshipForm />
       </div>
     </main>
