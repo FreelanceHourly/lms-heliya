@@ -135,8 +135,8 @@ const STRAPI_URL = process.env.STRAPI_URL;
 export async function fetchCourses(
   query: string
 ) {
-  const authToken = cookies().get("jwt")?.value;
-  if (!authToken) return redirect("/login");
+  // const authToken = cookies().get("jwt")?.value;
+  // if (!authToken) return redirect("/login");
 
   noStore();
 
@@ -151,9 +151,11 @@ export async function fetchCourses(
   
 
   try {
-    const response = await fetch(STRAPI_URL + "/api/courses?" + queryObject, {
-      headers: { Authorization: "Bearer " + authToken },
-    });
+    const response = await fetch(STRAPI_URL + "/api/courses?" + queryObject
+    // , {
+    //   headers: { Authorization: "Bearer "  },
+    // }
+    );
     const data = await response.json();
     const flattened = flattenAttributes(data.data);
     return { data: flattened};
