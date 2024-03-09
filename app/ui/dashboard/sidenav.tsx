@@ -7,26 +7,28 @@ import NavLinks from '@/app/ui/dashboard/nav-links';
 
 export default function SideNav() {
   return (
-    <nav className="bg-white py-1 px-5  md:py-2 md:px-2 flex-col items-center justify-between fixed top-0 w-full z-10">
-      <div className="flex items-center space-x-10">
-        <Link href="/">
-          <div className="mr-4">
-            <Image
-              src="/saralschool.png"
-              width={230}
-              height={230}
-              alt="logo"
-            />
-          </div>
-        </Link>
-        <NavLinks />
+    <nav className="bg-white pl-3 flex-col fixed top-0 w-full z-10">
+      <div className="flex items-center justify-between">
+        <div className='flex items-center'>
+          <Link href="/">
+            <div className="mr-4">
+              <Image
+                src="/saralschool.png"
+                width={230}
+                height={230}
+                alt="logo"
+              />
+            </div>
+          </Link>
+          <div className='flex w-[60%] justify-evenly items-start pl-10'><NavLinks /></div>
+        </div>
         <form
-          // action={async () => {
-          //   'use server';
-          //   await logoutAction();
-          // }}
+          action={async () => {
+            'use server';
+            await logoutAction();
+          }}
         >
-          <button className="flex h-[42px] grow items-center justify-center gap-2 rounded-md p-3 text-lg font-large hover:text-red-600 md:flex-none md:justify-start md:p-2 md:px-3">
+          <button className="flex items-center justify-center gap-2 rounded-md p-3 text-lg font-large hover:text-red-600 pr-10">
             <PowerIcon className="w-6" />
             <span className="md:block">Sign In</span>
           </button>

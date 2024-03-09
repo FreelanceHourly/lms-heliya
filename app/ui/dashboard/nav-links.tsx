@@ -11,8 +11,8 @@ const links = [
     href: "/home/courses"
   },
   {
-    name: "Research Hub",
-    href: "/home/researchhub"
+    name: "Mentors",
+    href: "/home/mentor"
   },
   {
     name: "Request Callback",
@@ -31,7 +31,7 @@ export default function NavLinks() {
             key={link.name}
             href={link.href}
             className={clsx(
-              "flex h-[42px] grow items-center justify-center gap-2 rounded-md p-3 text-md font-large hover:text-blue-500 md:flex-none md:justify-start md:p-2 md:px-3",
+              "flex h-[42px] grow items-center justify-center gap-2 rounded-md p-3 ml-7 text-lg font-large hover:text-blue-500 md:flex-none md:justify-start md:p-2 md:px-3",
               {
                 "text-blue-600": pathname === link.href,
               }
