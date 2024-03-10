@@ -5,18 +5,18 @@ import clsx from "clsx";
 import { usePathname } from "next/navigation";
 
 const links = [
-  { name: "Home", href: "/home"},
+  { name: "Home", href: "/home" },
   {
     name: "Courses",
-    href: "/home/courses"
+    href: "/home/courses",
   },
   {
     name: "Mentors",
-    href: "/home/mentor"
+    href: "/home/mentor",
   },
   {
     name: "Request Callback",
-    href: "/home/requestcallback"
+    href: "/CounsellingRequest",
   },
 ];
 

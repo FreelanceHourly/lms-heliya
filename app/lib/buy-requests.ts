@@ -26,7 +26,7 @@ export async function buyrequest(prevState: any, formData: any) {
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
-      message: "Missing Fields. Failed to Login.",
+      message: "Missing Fields. Failed to buy.",
     };
   }
 

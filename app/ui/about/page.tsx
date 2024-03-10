@@ -1,18 +1,18 @@
 "use client";
 import Image from "next/image";
 import useFetchCoursesData from "../../hooks/useFetchCourseData";
+import { CheckBadgeIcon,CheckCircleIcon } from "@heroicons/react/24/outline";
 import CourseCard from "@/app/CourseCard/CourseCard";
 import Link from "next/link";
 
 export default function About() {
 
   const courses = useFetchCoursesData();
-  // console.log(courses);
   return (
     <main className="flex md:h-screen ">
       <div className="flex-1 col-span-6 flex flex-col justify-evenly">
         <div className = "flex gap-2 mx-auto lg:mx-0">
-            <Image alt="check image" loading ="lazy" width="20" height="20" decoding="async" data-nimg="1" src="https://edu.saralgroups.com/assets/banner/check.svg" />
+            <CheckBadgeIcon className="w-[20px] h-[20px] text-green-500"/>
             <h3 className="text-green-500 text-sm font-semibold text-center lg:text-start">Upto 100% scholarship available</h3>       
         </div>
         <h1 className= "text-midnightblue-500 text-4xl sm:text-5xl font-semibold text-center lg:text-start lh-120 pt-5 lg:pt-0">Advance your Technical and Management skills with us .</h1>
@@ -27,15 +27,15 @@ export default function About() {
         <h3 className="text-charcoal text-lg font-normal text-center lg:text-start opacity-75 pt-10 lg:pt-5">"Build skills with our courses and mentor from world-class companies. We are on mission to prepare every indiviual for the job market , and become independent ."</h3>
         <div className="flex items-center justify-between pt-10 lg:pt-4">
             <div className="flex gap-2">
-                <Image alt="check-image" loading="lazy" width="30" height="30" decoding="async" data-nimg="1" className="smallImage" src="https://edu.saralgroups.com/assets/banner/check-circle.svg" />
+                <CheckCircleIcon className="w-[25px] h-[25px] text-blue-500"/>
                 <p className="text-sm sm:text-lg font-normal text-black">Tech</p>
             </div> 
             <div className="flex gap-2">
-                <Image alt="check-image" loading="lazy" width="30" height="30" decoding="async" data-nimg="1" className="smallImage" src="https://edu.saralgroups.com/assets/banner/check-circle.svg" />
+                <CheckCircleIcon className="w-[25px] h-[25px] text-blue-500"/>
                 <p className="text-sm sm:text-lg font-normal text-black">Entrepreneurship</p>
             </div> 
             <div className="flex gap-2">
-                <Image alt="check-image" loading="lazy" width="30" height="30" decoding="async" data-nimg="1" className="smallImage" src="https://edu.saralgroups.com/assets/banner/check-circle.svg" />
+                <CheckCircleIcon className="w-[25px] h-[25px] text-blue-500"/>
                 <p className="text-sm sm:text-lg font-normal text-black">Management</p>
             </div> 
         </div>

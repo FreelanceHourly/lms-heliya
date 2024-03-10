@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Image from "next/image";
 import { formatCurrency } from "@/app/lib/utils";
+import { UserGroupIcon, BookOpenIcon } from '@heroicons/react/24/outline';
 import Link from "next/link";
 import ScholarModal from './scholarModal';
 
@@ -74,23 +75,11 @@ export default function InvoicesTable({
                       </div>
                       <div className="flex justify-around pb-2">
                         <div className="flex text-sm">
-                          <Image
-                            src="https://edu.saralgroups.com/assets/courses/book-open.svg"
-                            className="mr-1"
-                            width={15}
-                            height={15}
-                            alt="book"
-                          />
+                          <BookOpenIcon className='w-[18px] h-[18px] mr-1'/>
                           {course.numberOfClasses} classes
                         </div>
                         <div className="flex text-sm">
-                          <Image
-                            src="https://edu.saralgroups.com/assets/courses/users.svg"
-                            className="mr-1"
-                            width={15}
-                            height={15}
-                            alt="book"
-                          />
+                          <UserGroupIcon className='w-[18px] h-[18px] mr-1'/>
                           {course.totalStudent} students
                         </div>
                       </div>
