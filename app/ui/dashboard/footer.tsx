@@ -67,7 +67,7 @@ export default function Footer() {
             </div>
             <h1 className="text-md font-medium mt-2">Phone Number</h1>
             <p className="font-light pl-1 hover:text-[#3b53b3] cursor-pointer">
-              +91 9374846573
+              +91 7827216955
             </p>
           </div>
         </div>
@@ -78,12 +78,16 @@ export default function Footer() {
             ©️2024, Saral School, All rights reserved.
           </h1>
           <div className="flex w-[40%] justify-evenly">
-            <h1 className="hover:text-black cursor-pointer">Refund Policy</h1>
-            <h1>|</h1>
-            <h1 className="hover:text-black cursor-pointer">Privacy Policy</h1>
+            <h1 className="hover:text-black cursor-pointer">
+              <Link href="/RefundPolicy">Refund Policy</Link>
+            </h1>
             <h1>|</h1>
             <h1 className="hover:text-black cursor-pointer">
-              Terms and Conditions
+              <Link href="/PrivacyPolicy">Privacy Policy</Link>
+            </h1>
+            <h1>|</h1>
+            <h1 className="hover:text-black cursor-pointer">
+              <Link href="/TermsCondition">Terms and Conditions</Link>
             </h1>
           </div>
         </div>
