@@ -8,6 +8,7 @@ import Link from "next/link";
 export default function About() {
 
   const courses = useFetchCoursesData();
+  
   return (
     <main className="flex md:h-screen ">
       <div className="flex-1 col-span-6 flex flex-col justify-evenly">
