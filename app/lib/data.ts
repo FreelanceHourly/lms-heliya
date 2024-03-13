@@ -134,7 +134,9 @@ const STRAPI_URL = process.env.STRAPI_URL;
 
 export async function fetchCourses(query: string) {
   noStore();
-
+  const filterCondition = {
+    'filters[levels][$containsi]': 'DIPLOMA',
+  };
   const queryObject = qs.stringify({
     sort: ['rating:desc'],
     populate: {
@@ -142,6 +144,85 @@ export async function fetchCourses(query: string) {
         fields: ['url'],
       },
     },
+    ...filterCondition,
+  });
+
+  try {
+    const response = await fetch(STRAPI_URL + '/api/courses?' + queryObject);
+    const data = await response.json();
+    const flattened = flattenAttributes(data.data);
+    return { data: flattened };
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch courses.');
+  }
+}
+
+export async function fetchGovtCourses(query: string) {
+  noStore();
+  const filterCondition = {
+    'filters[levels][$containsi]': 'GOVT_EXAM',
+  };
+  const queryObject = qs.stringify({
+    sort: ['rating:desc'],
+    populate: {
+      image: {
+        fields: ['url'],
+      },
+    },
+    ...filterCondition,
+  });
+
+  try {
+    const response = await fetch(STRAPI_URL + '/api/courses?' + queryObject);
+    const data = await response.json();
+    const flattened = flattenAttributes(data.data);
+    return { data: flattened };
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch courses.');
+  }
+}
+
+export async function fetchJeeCourses(query: string) {
+  noStore();
+  const filterCondition = {
+    'filters[levels][$containsi]': 'JEE',
+  };
+  const queryObject = qs.stringify({
+    sort: ['rating:desc'],
+    populate: {
+      image: {
+        fields: ['url'],
+      },
+    },
+    ...filterCondition,
+  });
+
+  try {
+    const response = await fetch(STRAPI_URL + '/api/courses?' + queryObject);
+    const data = await response.json();
+    const flattened = flattenAttributes(data.data);
+    return { data: flattened };
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch courses.');
+  }
+}
+
+export async function fetchNeetCourses(query: string) {
+  noStore();
+  const filterCondition = {
+    'filters[levels][$containsi]': 'NEET',
+  };
+  const queryObject = qs.stringify({
+    sort: ['rating:desc'],
+    populate: {
+      image: {
+        fields: ['url'],
+      },
+    },
+    ...filterCondition,
   });
 
   try {
@@ -158,7 +239,7 @@ export async function fetchCourses(query: string) {
 export async function fetch8thCourses(query: string) {
   noStore();
   const filterCondition = {
-    'filters[levels][$eq]': 'CLASS_8TH',
+    'filters[levels][$containsi]': 'CLASS_8TH',
   };
 
   const queryObject = qs.stringify({
@@ -168,7 +249,7 @@ export async function fetch8thCourses(query: string) {
         fields: ['url'],
       },
     },
-    ...filterCondition, // Include the filter condition in the query
+    ...filterCondition, 
   });
 
   try {
@@ -185,7 +266,7 @@ export async function fetch8thCourses(query: string) {
 export async function fetch9thCourses(query: string) {
   noStore();
   const filterCondition = {
-    'filters[levels][$eq]': 'CLASS_9TH',
+    'filters[levels][$containsi]': 'CLASS_9TH',
   };
 
   const queryObject = qs.stringify({
@@ -212,7 +293,7 @@ export async function fetch9thCourses(query: string) {
 export async function fetch10thCourses(query: string) {
   noStore();
   const filterCondition = {
-    'filters[levels][$eq]': 'CLASS_10TH',
+    'filters[levels][$containsi]': 'CLASS_10TH',
   };
 
   const queryObject = qs.stringify({
@@ -239,7 +320,7 @@ export async function fetch10thCourses(query: string) {
 export async function fetch11thCourses(query: string) {
   noStore();
   const filterCondition = {
-    'filters[levels][$eq]': 'CLASS_11TH',
+    'filters[levels][$containsi]': 'CLASS_11TH',
   };
 
   const queryObject = qs.stringify({
@@ -266,7 +347,7 @@ export async function fetch11thCourses(query: string) {
 export async function fetch12thCourses(query: string) {
   noStore();
   const filterCondition = {
-    'filters[levels][$eq]': 'CLASS_12TH',
+    'filters[levels][$containsi]': 'CLASS_12TH',
   };
 
   const queryObject = qs.stringify({

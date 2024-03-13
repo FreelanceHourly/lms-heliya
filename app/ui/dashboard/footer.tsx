@@ -23,12 +23,12 @@ export default function Footer() {
               Empowering minds to reach for the stars, one lesson at a time.
             </p>
           </div>
-          <div className="flex mt-5 ml-4 text-xl">
+          {/* <div className="flex mt-5 ml-4 text-xl">
             <FaFacebookF className="mr-5 hover:text-[#3b53b3]" />
             <FaTwitter className="mr-5 hover:text-[#3b53b3]" />
             <FaLinkedinIn className="mr-5 hover:text-[#3b53b3]" />
             <FaInstagram className="mr-5 hover:text-[#3b53b3]" />
-          </div>
+          </div> */}
         </div>
         <div className="flex justify-between w-[35%]">
           <div className="flex flex-col justify-evenly text-lg font-medium ">
@@ -66,7 +66,7 @@ export default function Footer() {
               </Link>
             </div>
             <h1 className="text-md font-medium mt-2">Phone Number</h1>
-            <p className="font-light pl-1 hover:text-[#3b53b3] cursor-pointer">
+            <p className="text-sm font-light pl-1 hover:text-[#3b53b3] cursor-pointer">
               +91 7827216955
             </p>
           </div>
@@ -92,7 +92,13 @@ export default function Footer() {
           </div>
         </div>
         <h1 className="flex justify-end mt-5 font-semibold">
-          Made with ❤️ by SaralTech
+          Made with ❤️ by &nbsp;
+          <Link
+            href="https://developers.saralgroups.com/"
+            className="hover:text-black cursor-pointer"
+          >
+            SaralTech
+          </Link>
           <span className="text-black">™</span>
         </h1>
       </div>

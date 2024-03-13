@@ -1,4 +1,4 @@
-import { fetch11thCourses } from "@/app/lib/data";
+import { fetchNeetCourses } from "@/app/lib/data";
 import Filter from "@/app/ui/Filters/page";
 import SideCoursesTable from "@/app/ui/invoices/sideCoursesTable";
 
@@ -10,7 +10,7 @@ export default async function Page({
   };
 }) {
   const query = searchParams?.query || "";
-  const { data: courses } = await fetch11thCourses(query);
+  const { data: courses } = await fetchNeetCourses(query);
   return (
     <div className="w-full flex">
       <Filter />
@@ -21,7 +21,7 @@ export default async function Page({
           scrollbarColor: "#7f7f7f transparent",
         }}
       >
-        <h1 className="text-center text-4xl font-bold">11th Courses</h1>
+        <h1 className="text-center text-4xl font-bold">NEET Courses</h1>
         <SideCoursesTable courses={courses} />
       </div>
     </div>

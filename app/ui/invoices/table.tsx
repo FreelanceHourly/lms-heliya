@@ -27,7 +27,7 @@ export default function InvoicesTable({ courses }: { courses: object[] }) {
         <div
           className="md:pt-0 flex items-start justify-between overflow-x-auto"
           style={{
-            width: "84vw",
+            width: "79vw",
             overflowX: "scroll",
             scrollbarWidth: "none",
           }}

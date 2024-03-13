@@ -15,9 +15,9 @@ export default async function Page({
   const { data: courses } = await fetchCourses(query);
   return (
     <div className="w-full flex">
-      <Filter courses={courses} />
+      <Filter />
       <div
-        className="pt-20 h-[100vh] overflow-y-auto"
+        className="pt-20 h-[100vh] overflow-y-auto w-[100%]"
         style={{
           scrollbarWidth: "thin",
           scrollbarColor: "#7f7f7f transparent",
