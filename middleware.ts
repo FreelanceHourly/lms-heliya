@@ -3,9 +3,9 @@ import type { NextRequest } from 'next/server'
 
 
 export function middleware(request: NextRequest) {
-  // const cookie = request.cookies.get('jwt');
+  const cookie = request.cookies.get('jwt');
   
-  // const currentPath = request.nextUrl.pathname;
+  const currentPath = request.nextUrl.pathname;
 
   // if (currentPath === '/home' && cookie === undefined) {
   //   return NextResponse.redirect(new URL('/login', request.url))

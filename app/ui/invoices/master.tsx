@@ -18,9 +18,9 @@ export default function MastersTable({ courses }: { courses: object[] }) {
     setShowModal(true);
   };
   return (
-    <div className=" flow-root">
+    <div className="pt-0">
       <div
-        className="inline-block min-w-full align-middle pt-3 rounded-t-3xl"
+        className="inline-block align-middle pt-3 rounded-t-3xl w-[84vw]"
         style={{ backgroundColor: "rgb(234 238 242)" }}
       >
         <h1 className="text-3xl font-bold text-center pb-3">Master Course</h1>
@@ -32,8 +32,8 @@ export default function MastersTable({ courses }: { courses: object[] }) {
                   key={course.id}
                   className="bg-white mb-8 px-2 rounded-2xl flex flex-col relative shadow-2xl transition-transform hover:scale-105"
                   style={{
-                    width: "350px",
-                    height: "450px",
+                    width: "325px",
+                    height: "425px",
                     background: "radial-gradient(circle, #000000, #00007F)",
                   }}
                 >

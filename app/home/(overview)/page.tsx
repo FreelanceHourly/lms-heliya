@@ -4,9 +4,9 @@ import Becomemember from "@/app/ui/becomemember/page";
 export default async function Page() {
   return (
     <main>
-      <div className="grid gap-6 ">
+      <div className="grid gap-6 pt-24 px-6">
         <About />
-        <Becomemember/>
+        <Becomemember />
       </div>
     </main>
   );

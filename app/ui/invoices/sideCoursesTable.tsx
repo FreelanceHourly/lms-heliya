@@ -6,7 +6,7 @@ import { UserGroupIcon, BookOpenIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import ScholarModal from "./scholarModal";
 
-export default function InvoicesTable({ courses }: { courses: object[] }) {
+export default function SideCoursesTable({ courses }: { courses: object[] }) {
   const [selectedCourse, setSelectedCourse] = useState<{
     title: string;
     scholarship: number;
@@ -21,24 +21,18 @@ export default function InvoicesTable({ courses }: { courses: object[] }) {
   return (
     <div className=" flow-root">
       <div className="inline-block align-middle pt-1 rounded-t-3xl">
-        <h1 className="text-3xl font-bold pl-5 pt-5 text-center">
-          Crash Course
-        </h1>
-        <div
-          className="md:pt-0 flex items-start justify-between overflow-x-auto"
-          style={{
-            width: "84vw",
-            overflowX: "scroll",
-            scrollbarWidth: "none",
-          }}
-        >
+        <div className="md:pt-0 flex flex-wrap items-start justify-evenly">
           {courses?.map(
             (course: any) =>
               !course.isMasterCourse && (
                 <div
                   key={course.id}
-                  className="bg-white mt-5 mb-5 px-2 mx-3 shadow-courses rounded-2xl flex flex-col relative shadow-xl transition-transform hover:scale-105"
-                  style={{ width: "275px", height: "400px" }}
+                  className="bg-white mt-5 mb-5 px-2 mx-3 shadow-courses rounded-2xl flex flex-col relative shadow-xl transition-transform hover:scale-105 "
+                  style={{
+                    width: "275px",
+                    height: "400px",
+                    background: "#EAF4D3",
+                  }}
                 >
                   <div className="flex items-center">
                     <Image

@@ -8,7 +8,7 @@ import NavLinks from "@/app/ui/dashboard/nav-links";
 
 export default function Footer() {
   return (
-    <>
+    <div className="z-10">
       <div className="flex w-[100%] h-[80%] p-4 pl-1 justify-between bg-[#c0c0c0]">
         <div className="w-[60%]">
           <div className="bg-transparent">
@@ -96,6 +96,6 @@ export default function Footer() {
           <span className="text-black">™</span>
         </h1>
       </div>
-    </>
+    </div>
   );
 }

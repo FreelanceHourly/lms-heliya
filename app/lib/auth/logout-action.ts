@@ -6,4 +6,3 @@ export async function logoutAction() {
   cookies().delete("jwt");
   redirect("/login");
 };
-

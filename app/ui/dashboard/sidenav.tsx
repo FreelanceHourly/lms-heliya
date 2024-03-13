@@ -1,15 +1,15 @@
 // SideNav.tsx
-import Link from 'next/link';
-import Image from 'next/image';
-import { PowerIcon } from '@heroicons/react/24/outline';
-import { logoutAction } from '@/app/lib/auth/logout-action';
-import NavLinks from '@/app/ui/dashboard/nav-links';
+import Link from "next/link";
+import Image from "next/image";
+import { PowerIcon } from "@heroicons/react/24/outline";
+import { logoutAction } from "@/app/lib/auth/logout-action";
+import NavLinks from "@/app/ui/dashboard/nav-links";
 
 export default function SideNav() {
   return (
     <nav className="bg-white pl-3 flex-col fixed top-0 w-full z-10">
       <div className="flex items-center justify-between">
-        <div className='flex items-center'>
+        <div className="flex items-center">
           <Link href="/">
             <div className="mr-4">
               <Image
@@ -20,11 +20,13 @@ export default function SideNav() {
               />
             </div>
           </Link>
-          <div className='flex w-[60%] justify-evenly items-start pl-10'><NavLinks /></div>
+          <div className="flex w-[60%] justify-evenly items-start pl-10">
+            <NavLinks />
+          </div>
         </div>
         <form
           action={async () => {
-            'use server';
+            "use server";
             await logoutAction();
           }}
         >

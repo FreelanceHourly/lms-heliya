@@ -1,7 +1,6 @@
-import { fetchCourses } from "@/app/lib/data";
-import Table from "@/app/ui/invoices/table";
-import Master from "@/app/ui/invoices/master";
+import { fetch10thCourses } from "@/app/lib/data";
 import Filter from "@/app/ui/Filters/page";
+import SideCoursesTable from "@/app/ui/invoices/sideCoursesTable";
 
 export default async function Page({
   searchParams,
@@ -11,20 +10,19 @@ export default async function Page({
   };
 }) {
   const query = searchParams?.query || "";
-
-  const { data: courses } = await fetchCourses(query);
+  const { data: courses } = await fetch10thCourses(query);
   return (
     <div className="w-full flex">
-      <Filter courses={courses} />
+      <Filter />
       <div
-        className="pt-20 h-[100vh] overflow-y-auto"
+        className="pt-20 h-[100vh] overflow-y-auto "
         style={{
           scrollbarWidth: "thin",
           scrollbarColor: "#7f7f7f transparent",
         }}
       >
-        <Master courses={courses} />
-        <Table courses={courses} />
+        <h1 className="text-center text-4xl font-bold">10th Courses</h1>
+        <SideCoursesTable courses={courses} />
       </div>
     </div>
   );
