@@ -16,7 +16,7 @@ export default function About() {
             <CheckBadgeIcon className="w-[20px] h-[20px] text-green-500"/>
             <h3 className="text-green-500 text-sm font-semibold text-center lg:text-start">Upto 100% scholarship available</h3>       
         </div>
-        <h1 className= "text-midnightblue-500 text-4xl sm:text-5xl font-semibold text-center lg:text-start lh-120 pt-5 lg:pt-0">Advance your Technical and Management skills with us .</h1>
+        <h1 className= "text-midnightblue-500 text-4xl sm:text-5xl font-semibold text-center lg:text-start lh-120 pt-5 lg:pt-0">We believe every student have different learning curve.</h1>
         <div className="flex items-center lg:justify-between sm:justify-center ">
             <div className="inset-y-0 right-0 flex items-center pr-2 sm:static sm-inset-auto">
             <Link
@@ -25,7 +25,7 @@ export default function About() {
           </Link>
             </div>
         </div>
-        <h3 className="text-charcoal text-lg font-normal text-center lg:text-start opacity-75 pt-10 lg:pt-5">"Build skills with our courses and mentor from world-class companies. We are on mission to prepare every indiviual for the job market , and become independent ."</h3>
+        <h3 className="text-charcoal text-lg font-normal text-center lg:text-start opacity-75 pt-10 lg:pt-5">"Build skills with our courses and mentor from world-class companies. 100% personalised coaching available. We are on mission to prepare every indiviual for the job market, and become independent ."</h3>
         <div className="flex items-center justify-between pt-10 lg:pt-4">
             <div className="flex gap-2">
                 <CheckCircleIcon className="w-[25px] h-[25px] text-blue-500"/>
