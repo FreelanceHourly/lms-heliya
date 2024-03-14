@@ -6,10 +6,10 @@ import  { useState, useEffect } from 'react';
 // "http://localhost:1337/api/teachers?populate=*",
 const useFetchTeacherData = (): any =>  {
   const [teachers, setTeachers] = useState([]);
-  const STRAPI_URL = process.env.STRAPI_URL;
+ 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(STRAPI_URL + '/api/teachers?populate=*');
+      const response = await fetch('https://strapi.saralgroups.com/api/teachers?populate=*');
       let data = await response.json();
       setTeachers(data.data);
       
