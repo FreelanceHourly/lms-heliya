@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
@@ -41,6 +41,10 @@ export default function NavLinks() {
           </Link>
         );
       })}
-    </>
+      
+
+
+
+    </> 
   );
 }

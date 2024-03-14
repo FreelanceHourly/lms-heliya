@@ -3,11 +3,9 @@ import Becomemember from "@/app/ui/becomemember/page";
 
 export default async function Page() {
   return (
-    <main>
-      <div className="grid gap-6 pt-24 px-6">
+    <main className="w-full mt-24  overflow-x-hidden overscroll-x-none ">
         <About />
         <Becomemember />
-      </div>
     </main>
   );
 }

@@ -10,7 +10,7 @@ export default function About() {
   const courses = useFetchCoursesData();
   
   return (
-    <main className="flex md:h-screen ">
+    <main className="flex flex-col w-full  sm:flex-row md:h-screen ">
       <div className="flex-1 col-span-6 flex flex-col justify-evenly">
         <div className = "flex gap-2 mx-auto lg:mx-0">
             <CheckBadgeIcon className="w-[20px] h-[20px] text-green-500"/>
