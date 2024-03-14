@@ -4,12 +4,12 @@ import { Button } from "../button";
 import { lusitana } from "@/app/ui/fonts";
 import { FaHandPointRight } from "react-icons/fa";
 
-export default function Filter({ courses }: { courses: object[] }) {
+export default function Filter() {
   return (
     <main className="flex flex-col pt-[72px] left-0 pr-2 h-[88vh]">
       <aside
         id="sidebar-multi-level-sidebar"
-        className="h-[88vh] left-0 w-40"
+        className="h-[88vh] left-0 w-45"
         aria-label="Sidebar"
       >
         <div
@@ -32,6 +32,35 @@ export default function Filter({ courses }: { courses: object[] }) {
                 <span className="flex-1 hover:text-purple-500 pl-2">
                   Diploma
                 </span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/home/sideCourses/GovtCourses"
+                className="flex items-center rounded-lg mb-1"
+              >
+                <FaHandPointRight />
+                <span className="flex-1 hover:text-purple-500 pl-2">
+                  Government Exams
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/home/sideCourses/JeeCourses"
+                className="flex items-center rounded-lg mb-1"
+              >
+                <FaHandPointRight />
+                <span className="flex-1 hover:text-purple-500 pl-2">JEE</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/home/sideCourses/NeetCourses"
+                className="flex items-center rounded-lg mb-1"
+              >
+                <FaHandPointRight />
+                <span className="flex-1 hover:text-purple-500 pl-2">NEET</span>
               </a>
             </li>
             <li>
@@ -80,7 +109,19 @@ export default function Filter({ courses }: { courses: object[] }) {
               </a>
             </li>
           </ul>
-          <h1 className="text-2xl p-2 text-blue-500">Mentors</h1>
+          {/* <h1 className="text-2xl p-2 text-blue-500">Category:</h1>
+          <ul className="font-medium text-xl pl-2">
+            <li>
+              <a
+                href="/home/sideCourses/8thCourses"
+                className="flex items-center"
+              >
+                <FaHandPointRight />
+                <span className="flex-1 hover:text-purple-500 pl-2">8th</span>
+              </a>
+            </li>
+          </ul>
+          <h1 className="text-2xl p-2 text-blue-500">Mentors</h1> */}
         </div>
       </aside>
     </main>

@@ -20,8 +20,8 @@ export default function SideCoursesTable({ courses }: { courses: object[] }) {
 
   return (
     <div className=" flow-root">
-      <div className="inline-block align-middle pt-1 rounded-t-3xl">
-        <div className="md:pt-0 flex flex-wrap items-start justify-evenly">
+      <div className="inline-block align-middle pt-1 rounded-t-3xl w-[100%]">
+        <div className="md:pt-0 flex flex-wrap items-start justify-evenly w-[100%]">
           {courses?.map(
             (course: any) =>
               !course.isMasterCourse && (
