@@ -21,7 +21,7 @@ export default function Mentor() {
         </div>
       </section>
     </div> */}
-    <div><h1>hello</h1>
+    <div>
     <div className='container mx-auto px-4' ><section className="text-gray-600 body-font"><div className="container mx-auto mb-5"> <div className="flex flex-wrap w-full md:mb-10"><div className="lg:w-1/2 w-full  lg:mb-0">
               <h1 className="sm:text-5xl my-11 text-3xl font-medium title-font mb-2 text-gray-900">Mentors</h1>
               <div className="h-1 w-20 bg-indigo-500 rounded"></div>
