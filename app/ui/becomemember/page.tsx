@@ -4,11 +4,11 @@ export default function Becomemember() {
     <main className="flex flex-col items-center p-6 ">
       <div className="width-full bg-black ">
         <u>
-          <h1 className="mb-4 text-xl w-100% pt-4 font-extrabold leading-none tracking-tight bg-black text-white md:text-5xl lg:text-5xl dark:text-white">
-            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Become a
+          <h1 className="mb-4 text-xl w-full pt-4 font-extrabold leading-none tracking-tight bg-black text-white md:text-5xl lg:text-5xl dark:text-white">
+           <span className="hidden sm:flex"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span> &nbsp; Become a
             member of{" "}
             <span className="text-blue-600 dark:text-blue-500 lg:text-6xl">
-              Saral School
+              SaralSchool
             </span>
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
           </h1>
