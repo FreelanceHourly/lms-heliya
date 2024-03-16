@@ -19,8 +19,8 @@ export default async function Page({
       <div
         className="pt-20 h-[100vh] overflow-y-auto w-[100%]"
         style={{
-          scrollbarWidth: "thin",
-          scrollbarColor: "#7f7f7f transparent",
+          overflowX: "scroll",
+          scrollbarWidth: "none",
         }}
       >
         <Master courses={courses} />
