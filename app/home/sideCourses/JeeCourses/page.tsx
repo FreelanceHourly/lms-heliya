@@ -17,8 +17,8 @@ export default async function Page({
       <div
         className="pt-20 h-[100vh] overflow-y-auto w-[100%]"
         style={{
-          scrollbarWidth: "thin",
-          scrollbarColor: "#7f7f7f transparent",
+          overflowX: "scroll",
+          scrollbarWidth: "none",
         }}
       >
         <h1 className="text-center text-4xl font-bold">JEE Courses</h1>

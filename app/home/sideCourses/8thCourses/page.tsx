@@ -15,10 +15,10 @@ export default async function Page({
     <div className="w-full flex">
       <Filter />
       <div
-        className="pt-20 h-[100vh] overflow-y-auto"
+        className="pt-20 h-[100vh] overflow-y-auto w-[100%]"
         style={{
-          scrollbarWidth: "thin",
-          scrollbarColor: "#7f7f7f transparent",
+          overflowX: "scroll",
+          scrollbarWidth: "none",
         }}
       >
         <h1 className="text-center text-4xl font-bold">8th Courses</h1>
