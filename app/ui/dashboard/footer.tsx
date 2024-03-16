@@ -1,10 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa6";
-import { PowerIcon } from "@heroicons/react/24/outline";
-import { logoutAction } from "@/app/lib/auth/logout-action";
-import NavLinks from "@/app/ui/dashboard/nav-links";
 
 export default function Footer() {
   return (
@@ -23,12 +20,20 @@ export default function Footer() {
               Empowering minds to reach for the stars, one lesson at a time.
             </p>
           </div>
-          {/* <div className="flex mt-5 ml-4 text-xl">
-            <FaFacebookF className="mr-5 hover:text-[#3b53b3]" />
-            <FaTwitter className="mr-5 hover:text-[#3b53b3]" />
-            <FaLinkedinIn className="mr-5 hover:text-[#3b53b3]" />
-            <FaInstagram className="mr-5 hover:text-[#3b53b3]" />
-          </div> */}
+          <div className="flex mt-5 ml-4 text-xl">
+            <Link href="https://www.facebook.com/saralschool/">
+              <FaFacebookF className="mr-5 hover:text-[#3b53b3]" />
+            </Link>
+            <Link href="https://www.youtube.com/@saral_school">
+              <FaYoutube className="mr-5 hover:text-[#3b53b3]" />
+            </Link>
+            <Link href="https://www.linkedin.com/company/saralschool/">
+              <FaLinkedinIn className="mr-5 hover:text-[#3b53b3]" />
+            </Link>
+            <Link href="https://www.instagram.com/saral_school/">
+              <FaInstagram className="mr-5 hover:text-[#3b53b3]" />
+            </Link>
+          </div>
         </div>
         <div className="flex justify-between w-[47%] sm:w-[37%] ">
           <div className="flex flex-col justify-evenly text-[9px] sm:text-lg font-medium ">
@@ -57,7 +62,9 @@ export default function Footer() {
               </Link>
             </div>
             <div className="pl-1 pt-1">
-              <h2 className="text-xs sm:text-sm font-normal">For Scholarship</h2>
+              <h2 className="text-xs sm:text-sm font-normal">
+                For Scholarship
+              </h2>
               <Link
                 href="mailto:sholarship@saralgroups.com"
                 className="text-[9px] sm:text-sm font-light hover:text-[#3b53b3]"
@@ -65,7 +72,9 @@ export default function Footer() {
                 sholarship@saralgroups.com
               </Link>
             </div>
-            <h1 className="text-sm sm:text-md font-medium mt-2">Phone Number</h1>
+            <h1 className="text-sm sm:text-md font-medium mt-2">
+              Phone Number
+            </h1>
             <p className="text-xs sm:text-sm font-light pl-1 hover:text-[#3b53b3] cursor-pointer">
               +91 7827216955
             </p>

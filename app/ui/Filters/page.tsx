@@ -1,23 +1,104 @@
 "use client";
+import { useState } from "react";
+import { ChangeEvent } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "../button";
-import { useState } from "react";
 import { lusitana } from "@/app/ui/fonts";
-import { FaHandPointRight } from "react-icons/fa";
+import {
+  fetchCourses,
+  fetchGovtCourses,
+  fetchJeeCourses,
+  fetchNeetCourses,
+  fetch8thCourses,
+  fetch9thCourses,
+  fetch10thCourses,
+  fetch11thCourses,
+  fetch12thCourses,
+} from "@/app/lib/data";
 
 export default function Filter() {
-  const [selectedLevels, setSelectedLevels] = useState<string[]>([]);
+  const [checkedItems, setCheckedItems] = useState<{
+    [key: string]: boolean;
+  }>({
+    diploma: false,
+    governmentExams: false,
+    jee: false,
+    neet: false,
+    twelveClass: false,
+    elevenClass: false,
+    tenthClass: false,
+    ninthClass: false,
+    eightClass: false,
+    // Add more checkbox states as needed
+  });
 
-  const handleCheckboxChange = (level: string) => {
-    const index = selectedLevels.indexOf(level);
-    if (index !== -1) {
-      setSelectedLevels(selectedLevels.filter((l) => l !== level));
-    } else {
-      setSelectedLevels([...selectedLevels, level]);
-    }
+  // Function to handle checkbox change
+  const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, checked } = event.target;
+    setCheckedItems({
+      ...checkedItems,
+      [name]: checked,
+    });
   };
 
+  // Function to handle "Apply Filter" button click
+  const handleApplyFilter = async () => {
+    // Create an array of selected checkbox names
+    const selectedCheckboxes = Object.keys(checkedItems).filter(
+      (checkbox) => checkedItems[checkbox as keyof typeof checkedItems]
+    );
+
+    // Send selectedCheckboxes array to the backend
+    console.log("Selected checkboxes:", selectedCheckboxes);
+
+    try {
+      for (const checkbox of selectedCheckboxes) {
+        switch (checkbox) {
+          case "diploma":
+            await fetchCourses("diploma");
+            break;
+          case "governmentExams":
+            await fetchGovtCourses("governmentExams");
+            break;
+          case "jee":
+            await fetchJeeCourses("jee");
+            break;
+          case "neet":
+            await fetchNeetCourses("neet");
+            break;
+          case "twelveClass":
+            await fetch12thCourses("twelveClass");
+            break;
+          case "elevenClass":
+            await fetch11thCourses("elevenClass");
+            break;
+          case "tenthClass":
+            await fetch10thCourses("tenthClass");
+            break;
+          case "ninthClass":
+            await fetch9thCourses("ninthClass");
+            break;
+          case "eightClass":
+            await fetch8thCourses("eightClass");
+            break;
+          default:
+            break;
+        }
+      }
+    } catch (error) {
+      console.error("Failed to fetch courses:", error);
+    }
+
+    // Reset the state of checkboxes if needed
+    // setCheckedItems({
+    //   diploma: false,
+    //   governmentExams: false,
+    //   jee: false,
+    //   neet: false,
+    //   // Reset other checkbox states as needed
+    // });
+  };
   return (
     <main className="flex flex-col pt-[72px] left-0 pr-2 h-[88vh]">
       <aside
@@ -34,108 +115,116 @@ export default function Filter() {
           >
             Filters
           </h2>
+          <Button
+            className="w-[110px] mb-4 text-lg text-center font-bold ml-7"
+            onClick={handleApplyFilter}
+          >
+            Apply Filter
+          </Button>
           <h1 className="text-2xl pb-2 pl-2 text-blue-500">Level:</h1>
           <ul className="font-medium text-xl pl-2">
             <li>
               <label className="flex items-center rounded-lg mb-1">
                 <input
                   type="checkbox"
-                  onChange={() => handleCheckboxChange("Diploma")}
-                  checked={selectedLevels.includes("Diploma")}
-                  className="mr-2 hidden"
+                  name="diploma"
+                  onChange={handleCheckboxChange}
+                  checked={checkedItems.diploma}
                 />
-                <a
-                  href="/home/courses"
-                  className="flex items-center rounded-lg mb-1"
-                >
-                  <FaHandPointRight />
-                  <span className="flex-1 hover:text-purple-500 pl-2">
-                    Diploma
-                  </span>
-                </a>
+                <span className="flex-1 hover:text-purple-500 pl-2">
+                  Diploma
+                </span>
               </label>
             </li>
             <li>
               <label className="flex items-center rounded-lg mb-1">
                 <input
                   type="checkbox"
-                  onChange={() => handleCheckboxChange("govtExam")}
-                  checked={selectedLevels.includes("govtExam")}
-                  className="mr-2 hidden"
+                  name="governmentExams"
+                  onChange={handleCheckboxChange}
+                  checked={checkedItems.governmentExams}
                 />
-                <a
-                  href="/home/sideCourses/GovtCourses"
-                  className="flex items-center rounded-lg mb-1"
-                >
-                  <FaHandPointRight />
-                  <span className="flex-1 hover:text-purple-500 pl-2">
-                    Government Exams
-                  </span>
-                </a>
+                <span className="flex-1 hover:text-purple-500 pl-2">
+                  Government Exams
+                </span>
               </label>
             </li>
             <li>
-              <a
-                href="/home/sideCourses/JeeCourses"
-                className="flex items-center rounded-lg mb-1"
-              >
-                <FaHandPointRight />
+              <label className="flex items-center rounded-lg mb-1">
+                <input
+                  type="checkbox"
+                  name="jee"
+                  onChange={handleCheckboxChange}
+                  checked={checkedItems.jee}
+                />
                 <span className="flex-1 hover:text-purple-500 pl-2">JEE</span>
-              </a>
+              </label>
             </li>
             <li>
-              <a
-                href="/home/sideCourses/NeetCourses"
-                className="flex items-center rounded-lg mb-1"
-              >
-                <FaHandPointRight />
+              <label className="flex items-center rounded-lg mb-1">
+                <input
+                  type="checkbox"
+                  name="neet"
+                  onChange={handleCheckboxChange}
+                  checked={checkedItems.neet}
+                />
                 <span className="flex-1 hover:text-purple-500 pl-2">NEET</span>
-              </a>
+              </label>
             </li>
             <li>
-              <a
-                href="/home/sideCourses/12thCourses"
-                className="flex items-center mb-1"
-              >
-                <FaHandPointRight />
+              <label className="flex items-center rounded-lg mb-1">
+                <input
+                  type="checkbox"
+                  name="twelveClass"
+                  onChange={handleCheckboxChange}
+                  checked={checkedItems.twelveClass}
+                />
                 <span className="flex-1 hover:text-purple-500 pl-2">12th</span>
-              </a>
+              </label>
             </li>
             <li>
-              <a
-                href="/home/sideCourses/11thCourses"
-                className="flex items-center mb-1"
-              >
-                <FaHandPointRight />
+              <label className="flex items-center rounded-lg mb-1">
+                <input
+                  type="checkbox"
+                  name="elevenClass"
+                  onChange={handleCheckboxChange}
+                  checked={checkedItems.elevenClass}
+                />
                 <span className="flex-1 hover:text-purple-500 pl-2">11th</span>
-              </a>
+              </label>
             </li>
             <li>
-              <a
-                href="/home/sideCourses/10thCourses"
-                className="flex items-center mb-1"
-              >
-                <FaHandPointRight />
+              <label className="flex items-center rounded-lg mb-1">
+                <input
+                  type="checkbox"
+                  name="tenthClass"
+                  onChange={handleCheckboxChange}
+                  checked={checkedItems.tenthClass}
+                />
                 <span className="flex-1 hover:text-purple-500 pl-2">10th</span>
-              </a>
+              </label>
             </li>
             <li>
-              <a
-                href="/home/sideCourses/9thCourses"
-                className="flex items-center mb-1"
-              >
-                <FaHandPointRight />
+              <label className="flex items-center rounded-lg mb-1">
+                <input
+                  type="checkbox"
+                  name="ninthClass"
+                  onChange={handleCheckboxChange}
+                  checked={checkedItems.ninthClass}
+                />
                 <span className="flex-1 hover:text-purple-500 pl-2">9th</span>
-              </a>
+              </label>
             </li>
             <li>
-              <a
-                href="/home/sideCourses/8thCourses"
-                className="flex items-center"
-              >
-                <FaHandPointRight />
+              <label className="flex items-center rounded-lg mb-1">
+                <input
+                  type="checkbox"
+                  name="eigthClass"
+                  onChange={handleCheckboxChange}
+                  checked={checkedItems.eightClass}
+                />
                 <span className="flex-1 hover:text-purple-500 pl-2">8th</span>
-              </a>
+              </label>
             </li>
           </ul>
           {/* <h1 className="text-2xl p-2 text-blue-500">Category:</h1>
