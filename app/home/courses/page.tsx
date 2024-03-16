@@ -17,7 +17,7 @@ export default async function Page({
     <div className="w-full flex">
       <Filter />
       <div
-        className="pt-20 h-[100vh] overflow-y-auto w-[100%]"
+        className="pt-20 h-[100vh] overflow-y-auto w-[100%] mt-2"
         style={{
           overflowX: "scroll",
           scrollbarWidth: "none",

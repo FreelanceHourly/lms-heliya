@@ -1,10 +1,23 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "../button";
+import { useState } from "react";
 import { lusitana } from "@/app/ui/fonts";
 import { FaHandPointRight } from "react-icons/fa";
 
 export default function Filter() {
+  const [selectedLevels, setSelectedLevels] = useState<string[]>([]);
+
+  const handleCheckboxChange = (level: string) => {
+    const index = selectedLevels.indexOf(level);
+    if (index !== -1) {
+      setSelectedLevels(selectedLevels.filter((l) => l !== level));
+    } else {
+      setSelectedLevels([...selectedLevels, level]);
+    }
+  };
+
   return (
     <main className="flex flex-col pt-[72px] left-0 pr-2 h-[88vh]">
       <aside
@@ -24,26 +37,42 @@ export default function Filter() {
           <h1 className="text-2xl pb-2 pl-2 text-blue-500">Level:</h1>
           <ul className="font-medium text-xl pl-2">
             <li>
-              <a
-                href="/home/courses"
-                className="flex items-center rounded-lg mb-1"
-              >
-                <FaHandPointRight />
-                <span className="flex-1 hover:text-purple-500 pl-2">
-                  Diploma
-                </span>
-              </a>
+              <label className="flex items-center rounded-lg mb-1">
+                <input
+                  type="checkbox"
+                  onChange={() => handleCheckboxChange("Diploma")}
+                  checked={selectedLevels.includes("Diploma")}
+                  className="mr-2 hidden"
+                />
+                <a
+                  href="/home/courses"
+                  className="flex items-center rounded-lg mb-1"
+                >
+                  <FaHandPointRight />
+                  <span className="flex-1 hover:text-purple-500 pl-2">
+                    Diploma
+                  </span>
+                </a>
+              </label>
             </li>
             <li>
-              <a
-                href="/home/sideCourses/GovtCourses"
-                className="flex items-center rounded-lg mb-1"
-              >
-                <FaHandPointRight />
-                <span className="flex-1 hover:text-purple-500 pl-2">
-                  Government Exams
-                </span>
-              </a>
+              <label className="flex items-center rounded-lg mb-1">
+                <input
+                  type="checkbox"
+                  onChange={() => handleCheckboxChange("govtExam")}
+                  checked={selectedLevels.includes("govtExam")}
+                  className="mr-2 hidden"
+                />
+                <a
+                  href="/home/sideCourses/GovtCourses"
+                  className="flex items-center rounded-lg mb-1"
+                >
+                  <FaHandPointRight />
+                  <span className="flex-1 hover:text-purple-500 pl-2">
+                    Government Exams
+                  </span>
+                </a>
+              </label>
             </li>
             <li>
               <a
