@@ -1,39 +1,26 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChangeEvent } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "../button";
 import { lusitana } from "@/app/ui/fonts";
-import {
-  fetchCourses,
-  fetchGovtCourses,
-  fetchJeeCourses,
-  fetchNeetCourses,
-  fetch8thCourses,
-  fetch9thCourses,
-  fetch10thCourses,
-  fetch11thCourses,
-  fetch12thCourses,
-} from "@/app/lib/data";
 
 export default function Filter() {
   const [checkedItems, setCheckedItems] = useState<{
     [key: string]: boolean;
   }>({
     diploma: false,
-    governmentExams: false,
+    govt: false,
     jee: false,
     neet: false,
-    twelveClass: false,
-    elevenClass: false,
-    tenthClass: false,
-    ninthClass: false,
-    eightClass: false,
-    // Add more checkbox states as needed
+    twelth: false,
+    eleventh: false,
+    tenth: false,
+    ninth: false,
+    eighth: false,
   });
 
-  // Function to handle checkbox change
   const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = event.target;
     setCheckedItems({
@@ -42,65 +29,24 @@ export default function Filter() {
     });
   };
 
-  // Function to handle "Apply Filter" button click
   const handleApplyFilter = async () => {
-    // Create an array of selected checkbox names
     const selectedCheckboxes = Object.keys(checkedItems).filter(
       (checkbox) => checkedItems[checkbox as keyof typeof checkedItems]
     );
 
-    // Send selectedCheckboxes array to the backend
     console.log("Selected checkboxes:", selectedCheckboxes);
 
-    try {
-      for (const checkbox of selectedCheckboxes) {
-        switch (checkbox) {
-          case "diploma":
-            await fetchCourses("diploma");
-            break;
-          case "governmentExams":
-            await fetchGovtCourses("governmentExams");
-            break;
-          case "jee":
-            await fetchJeeCourses("jee");
-            break;
-          case "neet":
-            await fetchNeetCourses("neet");
-            break;
-          case "twelveClass":
-            await fetch12thCourses("twelveClass");
-            break;
-          case "elevenClass":
-            await fetch11thCourses("elevenClass");
-            break;
-          case "tenthClass":
-            await fetch10thCourses("tenthClass");
-            break;
-          case "ninthClass":
-            await fetch9thCourses("ninthClass");
-            break;
-          case "eightClass":
-            await fetch8thCourses("eightClass");
-            break;
-          default:
-            break;
-        }
+    selectedCheckboxes.forEach((checkbox) => {
+      if (checkbox === "diploma") {
+        window.location.href = "/home/courses";
+      } else {
+        window.location.href = `/home/sideCourses/${checkbox}Courses`;
       }
-    } catch (error) {
-      console.error("Failed to fetch courses:", error);
-    }
-
-    // Reset the state of checkboxes if needed
-    // setCheckedItems({
-    //   diploma: false,
-    //   governmentExams: false,
-    //   jee: false,
-    //   neet: false,
-    //   // Reset other checkbox states as needed
-    // });
+    });
   };
+
   return (
-    <main className="flex flex-col pt-[72px] left-0 pr-2 h-[88vh]">
+    <main className="flex flex-col pt-[72px] left-0 pr-7 h-[88vh]">
       <aside
         id="sidebar-multi-level-sidebar"
         className="h-[88vh] left-0 w-45"
@@ -140,9 +86,9 @@ export default function Filter() {
               <label className="flex items-center rounded-lg mb-1">
                 <input
                   type="checkbox"
-                  name="governmentExams"
+                  name="govt"
                   onChange={handleCheckboxChange}
-                  checked={checkedItems.governmentExams}
+                  checked={checkedItems.govt}
                 />
                 <span className="flex-1 hover:text-purple-500 pl-2">
                   Government Exams
@@ -175,9 +121,9 @@ export default function Filter() {
               <label className="flex items-center rounded-lg mb-1">
                 <input
                   type="checkbox"
-                  name="twelveClass"
+                  name="twelth"
                   onChange={handleCheckboxChange}
-                  checked={checkedItems.twelveClass}
+                  checked={checkedItems.twelth}
                 />
                 <span className="flex-1 hover:text-purple-500 pl-2">12th</span>
               </label>
@@ -186,9 +132,9 @@ export default function Filter() {
               <label className="flex items-center rounded-lg mb-1">
                 <input
                   type="checkbox"
-                  name="elevenClass"
+                  name="eleventh"
                   onChange={handleCheckboxChange}
-                  checked={checkedItems.elevenClass}
+                  checked={checkedItems.eleventh}
                 />
                 <span className="flex-1 hover:text-purple-500 pl-2">11th</span>
               </label>
@@ -197,9 +143,9 @@ export default function Filter() {
               <label className="flex items-center rounded-lg mb-1">
                 <input
                   type="checkbox"
-                  name="tenthClass"
+                  name="tenth"
                   onChange={handleCheckboxChange}
-                  checked={checkedItems.tenthClass}
+                  checked={checkedItems.tenth}
                 />
                 <span className="flex-1 hover:text-purple-500 pl-2">10th</span>
               </label>
@@ -208,9 +154,9 @@ export default function Filter() {
               <label className="flex items-center rounded-lg mb-1">
                 <input
                   type="checkbox"
-                  name="ninthClass"
+                  name="ninth"
                   onChange={handleCheckboxChange}
-                  checked={checkedItems.ninthClass}
+                  checked={checkedItems.ninth}
                 />
                 <span className="flex-1 hover:text-purple-500 pl-2">9th</span>
               </label>
@@ -219,9 +165,9 @@ export default function Filter() {
               <label className="flex items-center rounded-lg mb-1">
                 <input
                   type="checkbox"
-                  name="eigthClass"
+                  name="eighth"
                   onChange={handleCheckboxChange}
-                  checked={checkedItems.eightClass}
+                  checked={checkedItems.eighth}
                 />
                 <span className="flex-1 hover:text-purple-500 pl-2">8th</span>
               </label>
