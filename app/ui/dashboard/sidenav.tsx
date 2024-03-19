@@ -109,7 +109,7 @@ export default function Navbar() {
           </div>
         </Link>
       </div>
-      <div className="w-9/12 flex justify-end items-center">
+      <div className=" w-9/12 flex justify-end items-center">
         <div
           className="z-50 flex relative w-8 h-8 flex-col justify-between items-center md:hidden"
           onClick={() => {
@@ -133,18 +133,18 @@ export default function Navbar() {
           />
         </div>
 
-        <div className="hidden md:flex ">
-          <NavLink to="/home">Home</NavLink>
-          <NavLink to="/home/courses">Courses</NavLink>
-          <NavLink to="/home/mentor">Mentors</NavLink>
-          <NavLink to="/CounsellingRequest">Request Callback</NavLink>
+        <div className="hidden md:flex">
+          <NavLink to="/home" ><span className="md:max-lg:text-xs ">Home</span></NavLink>
+          <NavLink to="/home/courses"><span className="md:max-lg:text-xs">Courses</span></NavLink>
+          <NavLink to="/home/mentor"><span className="md:max-lg:text-xs">Mentors</span></NavLink>
+          <NavLink to="/CounsellingRequest"><span className="md:max-lg:text-xs">Request Callback</span></NavLink>
           <form
             action={async () => {
               await logoutAction();
             }}
           >
-            <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-              <span className="md:block">Sign In</span>
+            <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none md:w-[80px] focus:ring-blue-300 font-medium rounded-lg text-sm  px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              <span className="md:block ">Sign In</span>
             </button>
           </form>
         </div>

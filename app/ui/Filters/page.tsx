@@ -6,6 +6,8 @@ import Image from "next/image";
 import { Button } from "../button";
 import { lusitana } from "@/app/ui/fonts";
 
+
+
 export default function Filter() {
   const [checkedItems, setCheckedItems] = useState<{
     [key: string]: boolean;
@@ -45,25 +47,43 @@ export default function Filter() {
     });
   };
 
+  const [isVisible, setIsVisible] = useState(false);
+
+  const toggleVisibility = () => {
+    setIsVisible(!isVisible);
+  };
+
+  const handleButtonClick = () => {
+    toggleVisibility(); // Call the toggleVisibility function
+    handleApplyFilter(); // Call the additionalFunction function
+  };
+
   return (
-    <main className="flex flex-col pt-[72px] left-0 pr-7 h-[88vh]">
+    <div className="flex flex-col">
+<div className="mt-[100px] ">
+    <button className={ `bg-blue-500 ${lusitana.className} w-40 hover:bg-blue-700 text-white font-bold  py-2 px-4 rounded`} onClick={toggleVisibility}>
+        Filters
+      </button></div>
+      {isVisible && (
+    <main className="flex flex-col pt-[2px] left-0 pr-7  ">
+      
       <aside
         id="sidebar-multi-level-sidebar"
-        className="h-[88vh] left-0 w-45"
+        className=" left-0 w-full"
         aria-label="Sidebar"
       >
         <div
-          className="h-[88vh] py-4 overflow-y-auto bg-gray-50"
-          style={{ background: "#C6D2ED" }}
+          className=" py-4 overflow-y-auto bg-gray-50"
+          
         >
-          <h2
+          {/* <h2
             className={`${lusitana.className} text-3xl text-gray-800 pb-3 font-bold text-center`}
           >
             Filters
-          </h2>
+          </h2> */}
           <Button
             className="w-[110px] mb-4 text-lg text-center font-bold ml-7"
-            onClick={handleApplyFilter}
+            onClick={handleButtonClick}
           >
             Apply Filter
           </Button>
@@ -189,5 +209,7 @@ export default function Filter() {
         </div>
       </aside>
     </main>
+     )}
+    </div>
   );
 }
