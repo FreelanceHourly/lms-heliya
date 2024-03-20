@@ -25,10 +25,10 @@ const TeacherProfile = (props: TeacherProfileProps) => {
   return (
 
     <>
-    <div className="flex flex-wrap -m-4">
+    <div className="flex flex-row flex-wrap justify-center -m-4">
       {teachers.map((item) => {
         return (
-          <div key={item.id} className="xl:w-1/4 md:w-1/2 px-4">
+          <div key={item.id} className="xl:w-1/4 md:w-1/2 px-4 my-3 ">
         {/* <div className="grid grid-cols-1 md:grid-cols-1 gap-2">
       <div className=" rounded-lg w-40 p-3 transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-200 relative">
       <div className=" max-w-sm w-60 h-80 rounded-lg bg-white-300 border-white-200 bg-opacity-50 shadow dark:border-gray-700" >
