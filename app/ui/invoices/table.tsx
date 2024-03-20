@@ -5,17 +5,38 @@ import { formatCurrency } from "@/app/lib/utils";
 import { UserGroupIcon, BookOpenIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import ScholarModal from "./scholarModal";
+import BuyEnquiryModal from "./buyEnquiryModal";
+import ScholarshipFormModal from "./scholarshipFormModal";
 
 export default function InvoicesTable({ courses }: { courses: object[] }) {
   const [selectedCourse, setSelectedCourse] = useState<{
     title: string;
     scholarship: number;
   } | null>(null);
-  const [showModal, setShowModal] = useState(false);
+  const [showScholarModal, setShowScholarModal] = useState(false);
+  const [showBuyEnquiryModal, setShowBuyEnquiryModal] = useState(false);
+  const [showScholarForm, setShowScholarForm] = useState(false);
 
   const handleApplyForScholarship = (course: any) => {
     setSelectedCourse({ title: course.title, scholarship: course.scholarship });
-    setShowModal(true);
+    setShowScholarModal(true);
+  };
+
+  const handleOpenScholarForm = () => {
+    setShowScholarForm(true);
+    setShowScholarModal(false);
+  };
+
+  const handleCloseScholarForm = () => {
+    setShowScholarForm(false);
+  };
+
+  const handleOpenBuyEnquiryModal = () => {
+    setShowBuyEnquiryModal(true);
+  };
+
+  const handleCloseBuyEnquiryModal = () => {
+    setShowBuyEnquiryModal(false);
   };
 
   return (
@@ -119,11 +140,12 @@ export default function InvoicesTable({ courses }: { courses: object[] }) {
                         </div>
                       ) : (
                         <div>
-                          <Link href="/BuyEnquiry">
-                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded w-60 text-center">
-                              Buy Now
-                            </button>
-                          </Link>
+                          <button
+                            onClick={handleOpenBuyEnquiryModal}
+                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded w-60 text-center"
+                          >
+                            Buy Now
+                          </button>
                           <h6 className="text-center text-sm pt-1 font-bold">
                             {" "}
                             HURRY UP!! Limited slots left
@@ -137,8 +159,8 @@ export default function InvoicesTable({ courses }: { courses: object[] }) {
           )}
         </div>
       </div>
-      {showModal && (
-        <ScholarModal onClose={() => setShowModal(false)}>
+      {showScholarModal && (
+        <ScholarModal onClose={() => setShowScholarModal(false)}>
           <div className="w-[40rem]">
             {selectedCourse && (
               <>
@@ -179,16 +201,24 @@ export default function InvoicesTable({ courses }: { courses: object[] }) {
             <p style={{ color: "#000080" }}>
               #SaralTech #ScholarshipOpportunity #InnovationJourney 🚀💡
             </p>
-            <Link
-              href="/ScholarshipRequest"
-              className="flex justify-center pt-3"
-            >
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 rounded w-40 ">
+            <div className="flex justify-center pt-3">
+              <button
+                onClick={handleOpenScholarForm}
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 rounded w-40 "
+              >
                 Apply Now
               </button>
-            </Link>
+            </div>
           </div>
         </ScholarModal>
+      )}
+
+      {showScholarForm && (
+        <ScholarshipFormModal onClose={handleCloseScholarForm} />
+      )}
+
+      {showBuyEnquiryModal && (
+        <BuyEnquiryModal onClose={handleCloseBuyEnquiryModal} />
       )}
     </div>
   );

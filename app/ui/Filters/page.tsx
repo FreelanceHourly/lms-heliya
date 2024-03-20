@@ -1,5 +1,6 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { fetchDynamicCourses } from "@/app/lib/data";
 import { ChangeEvent } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -10,15 +11,15 @@ export default function Filter() {
   const [checkedItems, setCheckedItems] = useState<{
     [key: string]: boolean;
   }>({
-    diploma: false,
-    govt: false,
-    jee: false,
-    neet: false,
-    twelth: false,
-    eleventh: false,
-    tenth: false,
-    ninth: false,
-    eighth: false,
+    DIPLOMA: false,
+    GOVT_EXAM: false,
+    JEE: false,
+    NEET: false,
+    CLASS_12TH: false,
+    CLASS_11TH: false,
+    CLASS_10TH: false,
+    CLASS_9TH: false,
+    CLASS_8TH: false,
   });
 
   const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -33,16 +34,8 @@ export default function Filter() {
     const selectedCheckboxes = Object.keys(checkedItems).filter(
       (checkbox) => checkedItems[checkbox as keyof typeof checkedItems]
     );
-
-    console.log("Selected checkboxes:", selectedCheckboxes);
-
-    selectedCheckboxes.forEach((checkbox) => {
-      if (checkbox === "diploma") {
-        window.location.href = "/home/courses";
-      } else {
-        window.location.href = `/home/sideCourses/${checkbox}Courses`;
-      }
-    });
+    console.log(selectedCheckboxes);
+    // onApplyFilter(selectedCheckboxes);
   };
 
   return (
@@ -73,9 +66,9 @@ export default function Filter() {
               <label className="flex items-center rounded-lg mb-1">
                 <input
                   type="checkbox"
-                  name="diploma"
+                  name="DIPLOMA"
                   onChange={handleCheckboxChange}
-                  checked={checkedItems.diploma}
+                  checked={checkedItems.DIPLOMA}
                 />
                 <span className="flex-1 hover:text-purple-500 pl-2">
                   Diploma
@@ -86,9 +79,9 @@ export default function Filter() {
               <label className="flex items-center rounded-lg mb-1">
                 <input
                   type="checkbox"
-                  name="govt"
+                  name="GOVT_EXAM"
                   onChange={handleCheckboxChange}
-                  checked={checkedItems.govt}
+                  checked={checkedItems.GOVT_EXAM}
                 />
                 <span className="flex-1 hover:text-purple-500 pl-2">
                   Government Exams
@@ -99,9 +92,9 @@ export default function Filter() {
               <label className="flex items-center rounded-lg mb-1">
                 <input
                   type="checkbox"
-                  name="jee"
+                  name="JEE"
                   onChange={handleCheckboxChange}
-                  checked={checkedItems.jee}
+                  checked={checkedItems.JEE}
                 />
                 <span className="flex-1 hover:text-purple-500 pl-2">JEE</span>
               </label>
@@ -110,9 +103,9 @@ export default function Filter() {
               <label className="flex items-center rounded-lg mb-1">
                 <input
                   type="checkbox"
-                  name="neet"
+                  name="NEET"
                   onChange={handleCheckboxChange}
-                  checked={checkedItems.neet}
+                  checked={checkedItems.NEET}
                 />
                 <span className="flex-1 hover:text-purple-500 pl-2">NEET</span>
               </label>
@@ -121,9 +114,9 @@ export default function Filter() {
               <label className="flex items-center rounded-lg mb-1">
                 <input
                   type="checkbox"
-                  name="twelth"
+                  name="CLASS_12TH"
                   onChange={handleCheckboxChange}
-                  checked={checkedItems.twelth}
+                  checked={checkedItems.CLASS_12TH}
                 />
                 <span className="flex-1 hover:text-purple-500 pl-2">12th</span>
               </label>
@@ -132,9 +125,9 @@ export default function Filter() {
               <label className="flex items-center rounded-lg mb-1">
                 <input
                   type="checkbox"
-                  name="eleventh"
+                  name="CLASS_11TH"
                   onChange={handleCheckboxChange}
-                  checked={checkedItems.eleventh}
+                  checked={checkedItems.CLASS_11TH}
                 />
                 <span className="flex-1 hover:text-purple-500 pl-2">11th</span>
               </label>
@@ -143,9 +136,9 @@ export default function Filter() {
               <label className="flex items-center rounded-lg mb-1">
                 <input
                   type="checkbox"
-                  name="tenth"
+                  name="CLASS_10TH"
                   onChange={handleCheckboxChange}
-                  checked={checkedItems.tenth}
+                  checked={checkedItems.CLASS_10TH}
                 />
                 <span className="flex-1 hover:text-purple-500 pl-2">10th</span>
               </label>
@@ -154,9 +147,9 @@ export default function Filter() {
               <label className="flex items-center rounded-lg mb-1">
                 <input
                   type="checkbox"
-                  name="ninth"
+                  name="CLASS_9TH"
                   onChange={handleCheckboxChange}
-                  checked={checkedItems.ninth}
+                  checked={checkedItems.CLASS_9TH}
                 />
                 <span className="flex-1 hover:text-purple-500 pl-2">9th</span>
               </label>
@@ -165,9 +158,9 @@ export default function Filter() {
               <label className="flex items-center rounded-lg mb-1">
                 <input
                   type="checkbox"
-                  name="eighth"
+                  name="CLASS_8TH"
                   onChange={handleCheckboxChange}
-                  checked={checkedItems.eighth}
+                  checked={checkedItems.CLASS_8TH}
                 />
                 <span className="flex-1 hover:text-purple-500 pl-2">8th</span>
               </label>
