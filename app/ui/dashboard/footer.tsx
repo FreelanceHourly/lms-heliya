@@ -16,7 +16,7 @@ export default function Footer() {
               height={230}
               alt="logo"
             />
-            <p className="ml-4 text-xs sm:text-md mt-[-15px]">
+            <p className="ml-4 text-xs sm:text-md mt-[5px]">
               Empowering minds to reach for the stars, one lesson at a time.
             </p>
           </div>
