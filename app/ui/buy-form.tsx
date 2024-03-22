@@ -2,31 +2,36 @@
 import { useFormState } from "react-dom";
 import { buyrequest } from "@/app/lib/buy-requests";
 import { lusitana } from "@/app/ui/fonts";
-import { AtSymbolIcon, PhoneIcon, UserIcon, PencilSquareIcon } from "@heroicons/react/24/outline";
+import {
+  AtSymbolIcon,
+  PhoneIcon,
+  UserIcon,
+  PencilSquareIcon,
+} from "@heroicons/react/24/outline";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import { Button } from "./button";
 import Link from "next/link";
 
-export default function BuyForm() {
+export default function BuyForm({ onClose }: { onClose: () => void }) {
   const initialState = {};
   const [state, dispatch] = useFormState(buyrequest, initialState);
   return (
-    <form className="space-y-3" action={dispatch}>
-      <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
-        <h1 className={`${lusitana.className} mb-3 text-2xl`}>
-        Pave your path to success with our courses!
+    <form className="space-y-1 mt-2 mr-3" action={dispatch}>
+      <div className="flex-1 rounded-lg bg-gray-50 px-4">
+        <h1 className={`${lusitana.className} mb-2 text-xl`}>
+          Pave your path to success with our courses!
         </h1>
         <div className="w-full">
           <div>
             <label
-              className="mb-3 mt-5 block text-xs font-medium text-gray-900"
+              className="mb-1 mt-3 block text-sm font-medium text-gray-900"
               htmlFor="name"
             >
               Name
             </label>
             <div className="relative">
               <input
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+                className="peer block w-full rounded-md border border-gray-200 py-[7px] pl-10 text-sm outline-2 placeholder:text-gray-500"
                 id="name"
                 type="text"
                 name="name"
@@ -34,28 +39,17 @@ export default function BuyForm() {
               />
               <UserIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
             </div>
-            {state?.errors?.name ? (
-              <div
-                id="customer-error"
-                aria-live="polite"
-                className="mt-2 text-sm text-red-500"
-              >
-                {state.errors.name.map((error: string) => (
-                  <p key={error}>{error}</p>
-                ))}
-              </div>
-            ) : null}
           </div>
           <div>
             <label
-              className="mb-3 mt-5 block text-xs font-medium text-gray-900"
+              className="mb-1 mt-3 block text-sm font-medium text-gray-900"
               htmlFor="email"
             >
               Email
             </label>
             <div className="relative">
               <input
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+                className="peer block w-full rounded-md border border-gray-200 py-[7px] pl-10 text-sm outline-2 placeholder:text-gray-500"
                 id="email"
                 type="email"
                 name="email"
@@ -63,28 +57,17 @@ export default function BuyForm() {
               />
               <AtSymbolIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
             </div>
-            {state?.errors?.email ? (
-              <div
-                id="customer-error"
-                aria-live="polite"
-                className="mt-2 text-sm text-red-500"
-              >
-                {state.errors.email.map((error: string) => (
-                  <p key={error}>{error}</p>
-                ))}
-              </div>
-            ) : null}
           </div>
           <div>
             <label
-              className="mb-3 mt-5 block text-xs font-medium text-gray-900"
+              className="mb-1 mt-3 block text-sm font-medium text-gray-900"
               htmlFor="phoneNumber"
             >
               Phone Number
             </label>
             <div className="relative">
               <input
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+                className="peer block w-full rounded-md border border-gray-200 py-[7px] pl-10 text-sm outline-2 placeholder:text-gray-500"
                 id="phoneNumber"
                 type="string"
                 name="phoneNumber"
@@ -92,46 +75,24 @@ export default function BuyForm() {
               />
               <PhoneIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
             </div>
-            {state?.errors?.phoneNumber ? (
-              <div
-                id="customer-error"
-                aria-live="polite"
-                className="mt-2 text-sm text-red-500"
-              >
-                {state.errors.phoneNumber.map((error: string) => (
-                  <p key={error}>{error}</p>
-                ))}
-              </div>
-            ) : null}
           </div>
           <div>
             <label
-              className="mb-3 mt-5 block text-xs font-medium text-gray-900"
+              className="mb-1 mt-3 block text-sm font-medium text-gray-900"
               htmlFor="description"
             >
               Description
             </label>
             <div className="relative">
               <textarea
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+                className="peer block w-full rounded-md border border-gray-200 py-[7px] pl-10 text-sm outline-2 placeholder:text-gray-500"
                 id="description"
-                rows={4}
+                rows={3}
                 name="description"
                 placeholder="Any queries"
               />
-              <PencilSquareIcon className="pointer-events-none absolute left-3 top-1/4 h-[18px] w-[18px] text-gray-500 peer-focus:text-gray-900" />
+              <PencilSquareIcon className="pointer-events-none absolute left-3 h-[18px] w-[18px] mt-[-67px] text-gray-500 peer-focus:text-gray-900" />
             </div>
-            {state?.errors?.description ? (
-              <div
-                id="customer-error"
-                aria-live="polite"
-                className="mt-2 text-sm text-red-500"
-              >
-                {state.errors.description.map((error: string) => (
-                  <p key={error}>{error}</p>
-                ))}
-              </div>
-            ) : null}
           </div>
         </div>
         <BuyButton />
@@ -146,9 +107,6 @@ export default function BuyForm() {
             </div>
           ) : null}
         </div>
-        <Link className="text-muted text-gray-400" href="/home/courses">
-          back
-        </Link>
       </div>
     </form>
   );
@@ -156,8 +114,9 @@ export default function BuyForm() {
 
 function BuyButton() {
   return (
-    <Button className="mt-4 w-full">
-      Buy Now<ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
+    <Button className="mt-6 w-full">
+      Buy Now
+      <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
     </Button>
   );
 }

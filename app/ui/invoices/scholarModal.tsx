@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 interface ModalProps {
   onClose: () => void;
@@ -7,16 +7,15 @@ interface ModalProps {
 
 export default function Modal({ onClose, children }: ModalProps) {
   useEffect(() => {
-    // Add event listener to close modal when clicking outside of it
     function handleClickOutside(event: MouseEvent) {
       if ((event.target as HTMLElement) === event.currentTarget) {
         onClose();
       }
     }
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [onClose]);
 
@@ -34,7 +33,12 @@ export default function Modal({ onClose, children }: ModalProps) {
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         </button>
         {children}
