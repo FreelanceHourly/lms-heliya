@@ -114,28 +114,22 @@ export default function InvoicesTable({ courses }: { courses: object[] }) {
                       <div className="flex flex-col justify-center items-center">
                         <h1>1:1</h1>
                         <p>Mentorship</p>
-                        <p style={{ fontSize: "14px" }}>
-                          {course.oneToOneMentorship !== 0
-                            ? formatCurrency(course.oneToOneMentorship)
-                            : "Not available"}
+                        <p style={{ fontSize: "12.5px" }}>
+                          {formatCurrency(course.oneToOneMentorship)}
                         </p>
                       </div>
                       <div className="flex flex-col justify-center items-center">
                         <h1>1:4</h1>
                         <p>Mentorship</p>
-                        <p style={{ fontSize: "14px" }}>
-                          {course.oneToFourMentorship !== 0
-                            ? formatCurrency(course.oneToFourMentorship)
-                            : "Not available"}
+                        <p style={{ fontSize: "12.5px" }}>
+                          {formatCurrency(course.oneToFourMentorship)}
                         </p>
                       </div>
                       <div className="flex flex-col justify-center items-center">
                         <h1>1:20</h1>
                         <p>Mentorship</p>
-                        <p style={{ fontSize: "14px" }}>
-                          {course.oneToTwentyMentorship !== 0
-                            ? formatCurrency(course.oneToTwentyMentorship)
-                            : "Not available"}
+                        <p style={{ fontSize: "12.5px" }}>
+                          {formatCurrency(course.oneToTwentyMentorship)}
                         </p>
                       </div>
                     </div>

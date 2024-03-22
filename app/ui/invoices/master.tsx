@@ -113,27 +113,21 @@ export default function MastersTable({ courses }: { courses: object[] }) {
                         <h1>1:1</h1>
                         <p>Mentorship</p>
                         <p style={{ fontSize: "15px" }}>
-                          {course.oneToOneMentorship !== 0
-                            ? formatCurrency(course.oneToOneMentorship)
-                            : "Not available"}
+                          {formatCurrency(course.oneToOneMentorship)}
                         </p>
                       </div>
                       <div className="flex flex-col justify-center items-center">
                         <h1>1:4</h1>
                         <p>Mentorship</p>
                         <p style={{ fontSize: "15px" }}>
-                          {course.oneToFourMentorship !== 0
-                            ? formatCurrency(course.oneToFourMentorship)
-                            : "Not available"}
+                          {formatCurrency(course.oneToFourMentorship)}
                         </p>
                       </div>
                       <div className="flex flex-col justify-center items-center">
                         <h1>1:20</h1>
                         <p>Mentorship</p>
                         <p style={{ fontSize: "15px" }}>
-                          {course.oneToTwentyMentorship !== 0
-                            ? formatCurrency(course.oneToTwentyMentorship)
-                            : "Not available"}
+                          {formatCurrency(course.oneToTwentyMentorship)}
                         </p>
                       </div>
                     </div>

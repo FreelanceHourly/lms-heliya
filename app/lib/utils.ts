@@ -1,11 +1,15 @@
 import { Revenue } from './definitions';
 
-export const formatCurrency = (amount: number) => {
-  return (amount).toLocaleString('en-IN', {
+export const formatCurrency = (amount: number | null) => {
+  if (amount === null  || amount === 0) {
+    return "Not available";
+  }
+  return amount.toLocaleString('en-IN', {
     style: 'currency',
     currency: 'INR',
   });
 };
+
 
 export const formatDateToLocal = (
   dateStr: string,
