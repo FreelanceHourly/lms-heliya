@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { fetchDynamicCourses } from "@/app/lib/data";
 import { ChangeEvent } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -35,7 +34,6 @@ export default function Filter() {
       (checkbox) => checkedItems[checkbox as keyof typeof checkedItems]
     );
     console.log(selectedCheckboxes);
-    // onApplyFilter(selectedCheckboxes);
   };
 
   const [isVisible, setIsVisible] = useState(false);
