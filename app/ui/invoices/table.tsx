@@ -59,7 +59,7 @@ export default function InvoicesTable({ courses }: { courses: object[] }) {
                 <div
                   key={course.id}
                   className="bg-white mt-5 mb-5 px-2 mx-3 shadow-courses rounded-2xl flex flex-col relative shadow-xl transition-transform hover:scale-105"
-                  style={{ width: "275px", height: "400px" }}
+                  style={{ width: "275px", height: "422px" }}
                 >
                   <div className="flex items-center">
                     <Image
@@ -107,8 +107,37 @@ export default function InvoicesTable({ courses }: { courses: object[] }) {
                         </div>
                       </div>
                     </div>
-                    <div className="flex py-1 text-lg font-bold items-center justify-center">
-                      {formatCurrency(course.cost)}
+                    <div
+                      className="flex text-xs font-bold items-center justify-between pt-1 pb-3"
+                      style={{ color: "#08BDBD" }}
+                    >
+                      <div className="flex flex-col justify-center items-center">
+                        <h1>1:1</h1>
+                        <p>Mentorship</p>
+                        <p style={{ fontSize: "14px" }}>
+                          {course.oneToOneMentorship !== 0
+                            ? formatCurrency(course.oneToOneMentorship)
+                            : "Not available"}
+                        </p>
+                      </div>
+                      <div className="flex flex-col justify-center items-center">
+                        <h1>1:4</h1>
+                        <p>Mentorship</p>
+                        <p style={{ fontSize: "14px" }}>
+                          {course.oneToFourMentorship !== 0
+                            ? formatCurrency(course.oneToFourMentorship)
+                            : "Not available"}
+                        </p>
+                      </div>
+                      <div className="flex flex-col justify-center items-center">
+                        <h1>1:20</h1>
+                        <p>Mentorship</p>
+                        <p style={{ fontSize: "14px" }}>
+                          {course.oneToTwentyMentorship !== 0
+                            ? formatCurrency(course.oneToTwentyMentorship)
+                            : "Not available"}
+                        </p>
+                      </div>
                     </div>
                     <div className="flex justify-around pb-2">
                       <div className="flex text-sm">

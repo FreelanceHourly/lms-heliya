@@ -55,7 +55,7 @@ export default function MastersTable({ courses }: { courses: object[] }) {
                   className="bg-white mb-8 px-2 rounded-2xl flex flex-col relative shadow-2xl transition-transform hover:scale-105"
                   style={{
                     width: "310px",
-                    height: "425px",
+                    height: "455px",
                     background: "radial-gradient(circle, #000000, #00007F)",
                   }}
                 >
@@ -105,8 +105,37 @@ export default function MastersTable({ courses }: { courses: object[] }) {
                         </div>
                       </div>
                     </div>
-                    <div className="flex py-2 text-white text-lg font-bold items-center justify-center">
-                      {formatCurrency(course.cost)}
+                    <div
+                      className="flex text-xs font-bold align-center justify-between pt-1 pb-3"
+                      style={{ color: "#DAFEB7" }}
+                    >
+                      <div className="flex flex-col justify-center items-center">
+                        <h1>1:1</h1>
+                        <p>Mentorship</p>
+                        <p style={{ fontSize: "15px" }}>
+                          {course.oneToOneMentorship !== 0
+                            ? formatCurrency(course.oneToOneMentorship)
+                            : "Not available"}
+                        </p>
+                      </div>
+                      <div className="flex flex-col justify-center items-center">
+                        <h1>1:4</h1>
+                        <p>Mentorship</p>
+                        <p style={{ fontSize: "15px" }}>
+                          {course.oneToFourMentorship !== 0
+                            ? formatCurrency(course.oneToFourMentorship)
+                            : "Not available"}
+                        </p>
+                      </div>
+                      <div className="flex flex-col justify-center items-center">
+                        <h1>1:20</h1>
+                        <p>Mentorship</p>
+                        <p style={{ fontSize: "15px" }}>
+                          {course.oneToTwentyMentorship !== 0
+                            ? formatCurrency(course.oneToTwentyMentorship)
+                            : "Not available"}
+                        </p>
+                      </div>
                     </div>
                     <div className="flex justify-around pb-3 text-white">
                       <div className="flex text-sm">
