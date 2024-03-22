@@ -160,44 +160,44 @@ export async function fetchCourses(query: string) {
   }
 }
 
-export async function fetchDynamicCourses(selectedCheckboxes: string[]) {
-  console.log("Selected Checkboxes:", selectedCheckboxes);
-  noStore();
-  const filterConditions: { [key: string]: string[] } = {};
+// export async function fetchDynamicCourses(selectedCheckboxes: string[]) {
+//   console.log("Selected Checkboxes:", selectedCheckboxes);
+//   noStore();
+//   const filterConditions: { [key: string]: string[] } = {};
 
-  if (selectedCheckboxes.length > 0) {
-    selectedCheckboxes.forEach((checkbox) => {
-      if (!filterConditions['filters[levels][$containsi]']) {
-        filterConditions['filters[levels][$containsi]'] = [];
-      }
-      filterConditions['filters[levels][$containsi]'].push(checkbox);
-    });
-  } else {
-    return { data: [] };
-  }
+//   if (selectedCheckboxes.length > 0) {
+//     selectedCheckboxes.forEach((checkbox) => {
+//       if (!filterConditions['filters[levels][$containsi]']) {
+//         filterConditions['filters[levels][$containsi]'] = [];
+//       }
+//       filterConditions['filters[levels][$containsi]'].push(checkbox);
+//     });
+//   } else {
+//     return { data: [] };
+//   }
 
-  const queryObject = qs.stringify({
-    sort: ['rating:desc'],
-    populate: {
-      image: {
-        fields: ['url'],
-      },
-    },
-    ...filterConditions,
-  });
+//   const queryObject = qs.stringify({
+//     sort: ['rating:desc'],
+//     populate: {
+//       image: {
+//         fields: ['url'],
+//       },
+//     },
+//     ...filterConditions,
+//   });
 
-  console.log(queryObject);
+//   console.log(queryObject);
 
-  try {
-    const response = await fetch(STRAPI_URL + '/api/courses?' + queryObject);
-    const data = await response.json();
-    const flattened = flattenAttributes(data.data);
-    return { data: flattened };
-  } catch (error) {
-    console.error('Database Error:', error);
-    throw new Error('Failed to fetch courses.');
-  }
-}
+//   try {
+//     const response = await fetch(STRAPI_URL + '/api/courses?' + queryObject);
+//     const data = await response.json();
+//     const flattened = flattenAttributes(data.data);
+//     return { data: flattened };
+//   } catch (error) {
+//     console.error('Database Error:', error);
+//     throw new Error('Failed to fetch courses.');
+//   }
+// }
 
 export async function fetchGovtCourses(query: string) {
   noStore();
