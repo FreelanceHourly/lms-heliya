@@ -7,6 +7,7 @@ import Link from "next/link";
 import ScholarModal from "./scholarModal";
 import BuyEnquiryModal from "./buyEnquiryModal";
 import ScholarshipFormModal from "./scholarshipFormModal";
+import { Metadata } from "next";
 
 export default function MastersTable({ courses }: { courses: object[] }) {
   const [selectedCourse, setSelectedCourse] = useState<{
