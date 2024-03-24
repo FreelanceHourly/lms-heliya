@@ -103,7 +103,7 @@ export default function Filter() {
                       checked={checkedItems.GOVT_EXAM}
                     />
                     <span className="flex-1 hover:text-purple-500 pl-2">
-                      Government Exams
+                      Govt. Exams
                     </span>
                   </label>
                 </li>
