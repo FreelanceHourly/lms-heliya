@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "../button";
 import { lusitana } from "@/app/ui/fonts";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 export default function Filter() {
   const [checkedItems, setCheckedItems] = useState<{
@@ -19,6 +20,14 @@ export default function Filter() {
     CLASS_10TH: false,
     CLASS_9TH: false,
     CLASS_8TH: false,
+    SCIENCE: false,
+    MEDICAL: false,
+    ARTS: false,
+    COMMERCE: false,
+    ENGINEERING: false,
+    MANAGEMENT: false,
+    SALES: false,
+    ENTREPRENEURSHIP: false,
   });
 
   const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -36,47 +45,41 @@ export default function Filter() {
     console.log(selectedCheckboxes);
   };
 
-  const [isVisible, setIsVisible] = useState(false);
+  const [areLevelsVisible, setAreLevelsVisible] = useState(true);
+  const [areCategoriesVisible, setAreCategoriesVisible] = useState(true);
 
-  const toggleVisibility = () => {
-    setIsVisible(!isVisible);
+  const toggleLevelsVisibility = () => {
+    setAreLevelsVisible(!areLevelsVisible);
   };
 
-  const handleButtonClick = () => {
-    toggleVisibility();
-    handleApplyFilter();
+  const toggleCategoriesVisibility = () => {
+    setAreCategoriesVisible(!areCategoriesVisible);
   };
 
   return (
-    <div className="flex flex-col">
-      <div className="mt-[100px] ">
-        <button
-          className={`bg-blue-500 ${lusitana.className} w-40 hover:bg-blue-700 text-white font-bold  py-2 px-4 rounded`}
-          onClick={toggleVisibility}
+    <div className="flex flex-col w-[290px]">
+      <h1 className="mt-[100px] p-2 pt-0 text-3xl pb-2 pl-2 text-blue-700 font-semibold">
+        All Filters
+      </h1>
+      <main className="flex flex-col pt-[2px] left-0 pr-7  ">
+        <aside
+          id="sidebar-multi-level-sidebar"
+          className=" left-0 w-full"
+          aria-label="Sidebar"
         >
-          Filters
-        </button>
-      </div>
-      {isVisible && (
-        <main className="flex flex-col pt-[2px] left-0 pr-7  ">
-          <aside
-            id="sidebar-multi-level-sidebar"
-            className=" left-0 w-full"
-            aria-label="Sidebar"
-          >
-            <div className=" py-4 overflow-y-auto bg-gray-50">
-              {/* <h2
-            className={`${lusitana.className} text-3xl text-gray-800 pb-3 font-bold text-center`}
-          >
-            Filters
-          </h2> */}
-              <Button
-                className="w-[110px] mb-4 text-lg text-center font-bold ml-7"
-                onClick={handleButtonClick}
-              >
-                Apply Filter
-              </Button>
-              <h1 className="text-2xl pb-2 pl-2 text-blue-500">Level:</h1>
+          <div className=" py-4 overflow-y-auto bg-gray-50">
+            <div
+              onClick={toggleLevelsVisibility}
+              className="flex items-center justify-between text-2xl pb-2 pl-2 text-blue-500 cursor-pointer"
+            >
+              <span>Level</span>
+              {areLevelsVisible ? (
+                <IoIosArrowUp size={24} className="mr-3" />
+              ) : (
+                <IoIosArrowDown size={24} className="mr-3" />
+              )}
+            </div>
+            {areLevelsVisible && (
               <ul className="font-medium text-xl pl-2">
                 <li>
                   <label className="flex items-center rounded-lg mb-1">
@@ -196,23 +199,135 @@ export default function Filter() {
                   </label>
                 </li>
               </ul>
-              {/* <h1 className="text-2xl p-2 text-blue-500">Category:</h1>
-          <ul className="font-medium text-xl pl-2">
-            <li>
-              <a
-                href="/home/sideCourses/8thCourses"
-                className="flex items-center"
-              >
-                <FaHandPointRight />
-                <span className="flex-1 hover:text-purple-500 pl-2">8th</span>
-              </a>
-            </li>
-          </ul>
-          <h1 className="text-2xl p-2 text-blue-500">Mentors</h1> */}
+            )}
+            <div
+              onClick={toggleCategoriesVisibility}
+              className="flex items-center justify-between text-2xl pb-2 pl-2 text-blue-500 cursor-pointer"
+            >
+              <span>Categories</span>
+              {areCategoriesVisible ? (
+                <IoIosArrowUp size={24} className="mr-3" />
+              ) : (
+                <IoIosArrowDown size={24} className="mr-3" />
+              )}
             </div>
-          </aside>
-        </main>
-      )}
+            {areCategoriesVisible && (
+              <ul className="font-medium text-xl pl-2">
+                <li>
+                  <label className="flex items-center rounded-lg mb-1">
+                    <input
+                      type="checkbox"
+                      name="SCIENCE"
+                      onChange={handleCheckboxChange}
+                      checked={checkedItems.SCIENCE}
+                    />
+                    <span className="flex-1 hover:text-purple-500 pl-2">
+                      Science
+                    </span>
+                  </label>
+                </li>
+                <li>
+                  <label className="flex items-center rounded-lg mb-1">
+                    <input
+                      type="checkbox"
+                      name="MEDICAL"
+                      onChange={handleCheckboxChange}
+                      checked={checkedItems.MEDICAL}
+                    />
+                    <span className="flex-1 hover:text-purple-500 pl-2">
+                      Medical
+                    </span>
+                  </label>
+                </li>
+                <li>
+                  <label className="flex items-center rounded-lg mb-1">
+                    <input
+                      type="checkbox"
+                      name="ARTS"
+                      onChange={handleCheckboxChange}
+                      checked={checkedItems.ARTS}
+                    />
+                    <span className="flex-1 hover:text-purple-500 pl-2">
+                      Arts
+                    </span>
+                  </label>
+                </li>
+                <li>
+                  <label className="flex items-center rounded-lg mb-1">
+                    <input
+                      type="checkbox"
+                      name="COMMERCE"
+                      onChange={handleCheckboxChange}
+                      checked={checkedItems.COMMERCE}
+                    />
+                    <span className="flex-1 hover:text-purple-500 pl-2">
+                      Commerce
+                    </span>
+                  </label>
+                </li>
+                <li>
+                  <label className="flex items-center rounded-lg mb-1">
+                    <input
+                      type="checkbox"
+                      name="ENGINEERING"
+                      onChange={handleCheckboxChange}
+                      checked={checkedItems.ENGINEERING}
+                    />
+                    <span className="flex-1 hover:text-purple-500 pl-2">
+                      Engineering
+                    </span>
+                  </label>
+                </li>
+                <li>
+                  <label className="flex items-center rounded-lg mb-1">
+                    <input
+                      type="checkbox"
+                      name="MANAGEMENT"
+                      onChange={handleCheckboxChange}
+                      checked={checkedItems.MANAGEMENT}
+                    />
+                    <span className="flex-1 hover:text-purple-500 pl-2">
+                      Management
+                    </span>
+                  </label>
+                </li>
+                <li>
+                  <label className="flex items-center rounded-lg mb-1">
+                    <input
+                      type="checkbox"
+                      name="SALES"
+                      onChange={handleCheckboxChange}
+                      checked={checkedItems.SALES}
+                    />
+                    <span className="flex-1 hover:text-purple-500 pl-2">
+                      Sales
+                    </span>
+                  </label>
+                </li>
+                <li>
+                  <label className="flex items-center rounded-lg mb-1">
+                    <input
+                      type="checkbox"
+                      name="ENTREPRENEURSHIP"
+                      onChange={handleCheckboxChange}
+                      checked={checkedItems.ENTREPRENEURSHIP}
+                    />
+                    <span className="flex-1 hover:text-purple-500 pl-2">
+                      Entrepreneurship
+                    </span>
+                  </label>
+                </li>
+              </ul>
+            )}
+            <Button
+              className="w-[110px] mt-4 text-lg font-bold ml-11"
+              onClick={handleApplyFilter}
+            >
+              Apply Filter
+            </Button>
+          </div>
+        </aside>
+      </main>
     </div>
   );
 }
