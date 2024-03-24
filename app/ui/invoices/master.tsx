@@ -195,7 +195,7 @@ export default function MastersTable({ courses }: { courses: object[] }) {
               className="text-lg pb-2 font-bold text-center"
               style={{ color: "gray" }}
             >
-              🚀 Unlock Your Learning Journey with SaralTech! 🌟
+              🚀 Unlock Your Learning Journey with HeliyaLMS! 🌟
             </p>
             {selectedCourse && (
               <>
@@ -221,7 +221,7 @@ export default function MastersTable({ courses }: { courses: object[] }) {
               Apply today and let your journey begin.
             </p>
             <p style={{ color: "#000080" }}>
-              #SaralTech #ScholarshipOpportunity #InnovationJourney 🚀💡
+              #Heliya #ScholarshipOpportunity #InnovationJourney 🚀💡
             </p>
             <div className="flex justify-center pt-3">
               <button

@@ -9,7 +9,7 @@ export default function CounsellingRequest() {
        
         <div className="w-32 text-white md:w-36 ">
           <Image
-            src="/saralschool.png"
+            src="/heliya_lms.png"
             width={400}
             height={400}
             className="hidden md:block"

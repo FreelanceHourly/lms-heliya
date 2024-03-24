@@ -33,7 +33,7 @@ function MobileNav({ open, setOpen }: MobileNavProps) {
         {" "}
         <Link href="/">
           <div className="mr-4">
-            <Image src="/saralschool.png" width={230} height={230} alt="logo" />
+            <Image src="/heliya_lms.png" width={230} height={230} alt="logo" />
           </div>
         </Link>
       </div>
@@ -105,7 +105,7 @@ export default function Navbar() {
       <div className="w-3/12 flex items-center">
         <Link href="/">
           <div className="mr-4">
-            <Image src="/saralschool.png" width={230} height={230} alt="logo" />
+            <Image src="/heliya_lms.png" width={230} height={230} alt="logo" />
           </div>
         </Link>
       </div>

@@ -8,7 +8,7 @@ export default function Becomemember() {
            <span className="hidden lg:flex"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span> &nbsp; Become a
             member of{" "}
             <span className="text-blue-600 dark:text-blue-500 lg:text-6xl">
-              SaralSchool
+              HeliyaLMS
             </span>
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
           </h1>
@@ -124,7 +124,7 @@ export default function Becomemember() {
             </div>
             <div className="text-slate-500">
               Join our course and head towards a bright future . Became the
-              member of SaralSchool .{" "}
+              member of HeliyaLMS .{" "}
             </div>
           </div>
         </div>

@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="w-[50%] sm:w-[60%]">
           <div className=" bg-transparent">
             <Image
-              src="/saralschool.png"
+              src="/heliya_lms.png"
               style={{ mixBlendMode: "multiply" }}
               width={230}
               height={230}
@@ -21,16 +21,16 @@ export default function Footer() {
             </p>
           </div>
           <div className="flex mt-5 ml-4 text-xl">
-            <Link href="https://www.facebook.com/saralschool/">
+            <Link href="https://www.facebook.com/heliya-lms/">
               <FaFacebookF className="mr-5 hover:text-[#3b53b3]" />
             </Link>
-            <Link href="https://www.youtube.com/@saral_school">
+            <Link href="https://www.youtube.com/@heliya-lms">
               <FaYoutube className="mr-5 hover:text-[#3b53b3]" />
             </Link>
-            <Link href="https://www.linkedin.com/company/saralschool/">
+            <Link href="https://www.linkedin.com/company/heliya-lms/">
               <FaLinkedinIn className="mr-5 hover:text-[#3b53b3]" />
             </Link>
-            <Link href="https://www.instagram.com/saral_school/">
+            <Link href="https://www.instagram.com/heliya-lms/">
               <FaInstagram className="mr-5 hover:text-[#3b53b3]" />
             </Link>
           </div>
@@ -84,7 +84,7 @@ export default function Footer() {
       <div className="bg-[#3b53b3] text-white h-[100px] p-4">
         <div className="flex justify-between">
           <h1 className="text-[10px] sm:text-lg w-[30%]">
-            ©️2024, Saral School, All rights reserved.
+            ©️2024, Heliya LMS, All rights reserved.
           </h1>
           <div className="text-xs flex w-[40%] justify-evenly">
             <h1 className="hover:text-black cursor-pointer">
@@ -106,7 +106,7 @@ export default function Footer() {
             href="https://developers.saralgroups.com/"
             className="hover:text-black cursor-pointer"
           >
-            SaralTech
+            Heliya
           </Link>
           <span className="text-black">™</span>
         </h1>

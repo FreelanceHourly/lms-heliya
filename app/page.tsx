@@ -9,7 +9,7 @@ export default function Page() {
   //   <main className="flex min-h-screen flex-col p-6">
   //     <div className="flex justify-between h-15 shrink-0 items-end rounded-lg p-3 md:h-25">
   //       <Image
-  //           src="/saralschool.png"
+  //           src="/heliya_lms.png"
   //           width={400}
   //           height={400}
   //           className="hidden md:block"
